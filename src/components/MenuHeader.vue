@@ -23,7 +23,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-@import "../styles/globals.scss";
+  @import "@/styles/global.scss";
 </style>
 
 
