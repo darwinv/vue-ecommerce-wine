@@ -23,14 +23,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-@import "../styles/globals.scss";
+@import "../styles/global.scss";
 </style>
 
 
 <style scoped lang="scss">
 .menu-header {
-  // margin: 40px 0 0;
-  background-color: black;
+  background-color: $base-dark;
   color: white;
 }
 </style>
