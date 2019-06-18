@@ -1,9 +1,10 @@
 <template>
+  <div id="menu-header">
     <div class="float-left menu-header w-100"  >
         <div class="menu-items menu-left-items">
-          <img src="@/assets/img/menu.png">
-          <spam>THE COLLECTION</spam>
-          <spam>ABOUT US</spam>
+          <img v-on:click="toggleMenu" src="@/assets/img/menu.png" class="pointer">
+          <span class="d-none d-md-inline-block">THE COLLECTION</span>
+          <span class="d-none d-md-inline-block">ABOUT US</span>
         </div>
 
         <div class="menu-logo-content">
@@ -11,7 +12,7 @@
           <img src="@/assets/img/logo.svg" class="menu-logo">
         </div>
 
-        <div class="menu-items menu-right-items">
+        <div class="menu-items menu-right-items d-none d-md-block">
           <img class="float-right" src="@/assets/img/car.svg" >
           <img class="float-right" src="@/assets/img/profile.svg" >
           <div class="relative float-right" >
@@ -21,11 +22,45 @@
         </div>
 
     </div>
+
+    <div class="menu-side transition-opacity" v-bind:class="{ 'opacity-0': isMenuSideHide }">
+       <div class="d-block d-md-none">
+          <div class="relative" >
+            <input type="text" class="search-input">
+            <img class="search-ico" src="@/assets/img/search.svg">
+          </div>
+          <img class="m-2" src="@/assets/img/car.svg" >
+          <img class="m-2" src="@/assets/img/profile.svg" >
+        </div>
+
+      <h2>ABOUT US</h2>
+        <a>About Pollux</a>
+        <a>Winery Producers</a>
+        <a>Private Events</a>
+      <h2>OUR SHOP</h2>
+        <a>All Wines</a>
+        <a>Best Sellers</a>
+        <a>New Releases</a> 
+      <h2>LATEST NEWS</h2>
+    </div>
+
+  </div>
 </template>
 
 <script>
+
 export default {
-  name: "MenuHeader"
+  name: "MenuHeader",
+  data: function() {
+         return  {
+           isMenuSideHide: true,
+         }
+    },
+  methods: {
+    toggleMenu() {
+      this.isMenuSideHide = !this.isMenuSideHide;
+    }
+  }
 };
 </script>
 
@@ -44,18 +79,19 @@ export default {
   }
   .search-ico{
     padding: 0px;
-      position: absolute;
-      right: 10px;
-      top: 5px;
+    right: 10px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
-
 
   .menu-items {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
   }
-  .menu-items > img, .menu-items > spam, .menu-items > div {
+  .menu-items > img, .menu-items > span, .menu-items > div {
     margin: 0px 20px 0px 20px;
     font-weight: bold;
   }
@@ -76,7 +112,7 @@ export default {
     width: 150px;
     height: 150px;
     border-radius: 48%;
-    margin-left: -18px;
+    margin-left: -20px;
     position: absolute;
   }
 
@@ -87,9 +123,25 @@ export default {
     position: relative;
     font-size: 20px;
   }
+
+  .menu-side {
+    background-color: #58585891;
+    color: white;
+    text-align: left;
+    padding: 30px 85px 0px 55px;
+    padding-bottom: 40px;
+    position: absolute;
+    top: 105px;
+  }
+  .menu-side > a {
+    display: block;
+    font-size: 20px;
+    margin-botton: 20px;
+  }
+  .menu-side > h2 {
+    font-size: 25px;
+    margin-top: 30px;
+  }
+
 </style>
 
-
-<style scoped lang="scss">
-
-</style>
