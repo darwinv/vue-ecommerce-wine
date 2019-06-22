@@ -106,6 +106,7 @@ export default {
 
   .menu-logo {
     position: relative;
+    z-index: 1;
   }
   .menu-logo-bg {
     background: #070707;
@@ -114,6 +115,7 @@ export default {
     border-radius: 48%;
     margin-left: -20px;
     position: absolute;
+    z-index: 1;
   }
 
   .menu-header {
@@ -125,13 +127,14 @@ export default {
   }
 
   .menu-side {
-    background-color: #58585891;
+    background-color: #13110fd1;
     color: white;
     text-align: left;
     padding: 30px 85px 0px 55px;
     padding-bottom: 40px;
     position: absolute;
     top: 105px;
+    z-index: 1;
   }
   .menu-side > a {
     display: block;
