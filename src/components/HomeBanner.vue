@@ -1,0 +1,57 @@
+<template>
+ 
+  <div class="banner-container relative float-left">
+     <b-col sm="4" offset-sm="*6" class='container-text' >
+      <p>
+        Pollux is an online wine shop for budding and experienced wine lovers to purchase artisan wines made the old-fashioned way: by hand.
+      </p>
+      <p>
+        Discover new regions, new wine styles, and most importantly what you like.
+      </p>
+      <button  class="global-btn-dark mt-5">
+        SHOP BY CATEGORY
+      </button>
+    </b-col>
+  </div>
+
+</template>
+
+<script>
+export default {
+  name: "HomeBanner"
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
+  @import "@/styles/global.scss";
+
+ .banner-container {
+    height: calc(100vh - 100px);
+    max-width: 100%;
+    width: 100%;
+    background-image: url(/img/banner.ab940678.png);
+    background-size: cover;
+    min-height: 85vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .container-text{
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    color: white;
+    text-align: justify;
+  }
+
+  .container-text p{
+    font-size:20px;
+  }
+
+  /* Small devices  */
+  @media (max-width: 576px) {
+    .container-text{
+      right: auto;
+    }
+  }
+</style>
