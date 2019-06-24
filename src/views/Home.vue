@@ -2,12 +2,10 @@
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+    <CategorySlider />
     <GreenBgHome />
     <FooterHome />
   </div>
-
-
-
 </template>
 
 <script>
@@ -16,6 +14,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
 import MenuHeader from "@/components/MenuHeader.vue";
 import FooterHome from "@/components/FooterHome.vue";
 import GreenBgHome from "@/components/GreenBgHome.vue";
+import CategorySlider from "@/components/CategorySlider.vue";
 
 export default {
   name: "home",
@@ -23,9 +22,8 @@ export default {
     HelloWorld,
     MenuHeader,
     GreenBgHome,
-    FooterHome
+    FooterHome,
+    CategorySlider
   }
 };
-
-
 </script>

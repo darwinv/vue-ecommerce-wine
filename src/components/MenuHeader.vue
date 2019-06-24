@@ -1,18 +1,16 @@
 <template>
-
-<b-container fluid class="menu-header">
-  <b-row>
-    <b-col>
+  <b-container fluid class="menu-header">
+    <b-row>
+      <b-col>
         <div>
           <b-nav>
             <b-nav-item>THE COLLECTION</b-nav-item>
             <b-nav-item>ABOUT US</b-nav-item>
           </b-nav>
-        </div>   
+        </div>
       </b-col>
-  </b-row>
-</b-container>
-
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -25,7 +23,6 @@ export default {
 <style lang="scss" scoped>
 @import "../styles/global.scss";
 </style>
-
 
 <style scoped lang="scss">
 .menu-header {
