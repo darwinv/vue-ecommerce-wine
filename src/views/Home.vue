@@ -1,15 +1,14 @@
 <template>
+  <b-container fluid >
+    <div class="home">
+      <MenuHeader />
+      <HomeBanner />
 
-<b-container fluid >
-  <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
-    <MenuHeader />
-    <HomeBanner />
-
-    <CategorySlider />
-    <GreenBgHome />
-    <FooterHome />
-  </div>
+      <CategorySlider />
+      <GreenBgHome />
+      <FooterHome />
+    </div>
+  </b-container>
 </template>
 
 <script>
