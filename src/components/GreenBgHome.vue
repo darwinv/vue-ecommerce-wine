@@ -1,5 +1,5 @@
 <template>
-  <div class="rect-green">
+  <div class="rectangle-green">
     <b-row>
       <b-col sm>
         <div class="text-box">
@@ -37,15 +37,16 @@ export default {
 <style lang="scss" scoped>
 @import "../styles/global.scss";
 
-.rect-green {
+.rectangle-green {
   background-image: url("../assets/img/rectangle-green.png");
   height: 100%;
   color: white;
   padding: 4% 0;
+  background-color: #1d1d1d;
   width: 100%;
 }
 
-.rect-green .row {
+.rectangle-green .row {
   //vertical-align: baseline;
   padding: 10% 0;
 }

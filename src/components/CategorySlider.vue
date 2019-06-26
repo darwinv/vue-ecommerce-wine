@@ -6,6 +6,8 @@
          <Slide v-bind:slide="slide"> </Slide> 
       </div>
     </div>
+
+    <progress max="100" value="80" ></progress>
   </div>
 </template>
 
@@ -17,9 +19,9 @@ export default {
   data() {
     return {
       slides: [
-        { src: "https://cutpcdnwimages.azureedge.net/-/media/images/retail/wine/monthly-heroes/8938-great-wines-under-20_642x340.jpg" },
-        { src: "https://cutpcdnwimages.azureedge.net/-/media/images/retail/wine/monthly-heroes/8938-great-wines-under-20_642x340.jpg" },
-        { src: "https://cutpcdnwimages.azureedge.net/-/media/images/retail/wine/monthly-heroes/8938-great-wines-under-20_642x340.jpg" }
+        { name:"PAIRING", src: "https://cutpcdnwimages.azureedge.net/-/media/images/retail/wine/monthly-heroes/8938-great-wines-under-20_642x340.jpg" },
+        { name:"VARIETAL", src: "https://cutpcdnwimages.azureedge.net/-/media/images/retail/wine/monthly-heroes/8938-great-wines-under-20_642x340.jpg" },
+        { name:"PRODUCERS", src: "https://cutpcdnwimages.azureedge.net/-/media/images/retail/wine/monthly-heroes/8938-great-wines-under-20_642x340.jpg" }
       ],
       innerWidth:0,
       singleWidth:0,
@@ -64,4 +66,25 @@ export default {
   font-weight: bold;
 }
 
+
+progress {
+  -webkit-appearance: none;
+  border:1px solid;
+}
+
+progress[value] {
+/* Eliminamos la apariencia por defecto 
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+*/
+  height: 2.5%;
+  width: 69%;
+  margin-top: 4%;
+
+}
+
+progress::-moz-progress-bar { background: #203c26; }
+progress::-webkit-progress-value { background-color: #203c26; }
+progress::-webkit-progress-bar { background-color: #e6e6e6; }
 </style>

@@ -43,7 +43,6 @@ export default {
 }
 
 .footer {
-  background-color: #2e2e2e;
   color: white;
   height: 122px;
   margin-right: 0;
