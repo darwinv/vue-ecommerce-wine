@@ -35,6 +35,7 @@ export default {
   color: white;
   height: 40px;
   font-size: calc(5px + 1vw);
+  margin-right: 0;
 }
 
 .mar20L {
@@ -45,5 +46,6 @@ export default {
   background-color: #2e2e2e;
   color: white;
   height: 122px;
+  margin-right: 0;
 }
 </style>
