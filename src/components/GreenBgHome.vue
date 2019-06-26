@@ -42,7 +42,7 @@ export default {
   height: 100%;
   color: white;
   padding: 4% 0;
-  width: 101%;
+  width: 100%;
 }
 
 .rect-green .row {
