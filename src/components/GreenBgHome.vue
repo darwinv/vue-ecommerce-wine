@@ -1,7 +1,7 @@
 <template>
-  <div class="rect-green">
-    <div>
-      <b-col sm>
+  <b-col sm class="rect-green col-sm">
+    <b-row>
+      <b-col sm >
         <div class="text-box">
           <h3>Naturally Delicious</h3>
           <p>
@@ -23,8 +23,8 @@
           </p>
         </div>
       </b-col>
-    </div>
-  </div>
+    </b-row>
+  </b-col>
 </template>
 
 <script>
@@ -41,7 +41,6 @@ export default {
   background-image: url("../assets/img/rectangle-green.png");
   height: 100%;
   color: white;
-  padding: 4% 0;
   width: 101%;
 }
 
