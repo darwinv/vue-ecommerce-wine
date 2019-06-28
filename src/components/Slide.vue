@@ -1,6 +1,6 @@
 <template>
   <div class="slide">
-    <img v-bind:src="slide.src" v-bind:alt="slide.name"> 
+    <img class="img-fluid" v-bind:src="slide.src" v-bind:alt="slide.name"> 
     <div class="caption">{{ slide.name }}</div>
   </div>
 </template>
@@ -18,10 +18,6 @@ export default {
 
 .slide{
   position: relative;
-}
-
-.slide img {
-  max-width: 100%;
 }
 
 .caption{
