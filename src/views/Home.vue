@@ -1,12 +1,15 @@
 <template>
   <b-container fluid >
-    <div class="home">
-      <MenuHeader />
-      <HomeBanner />
+    <div class="home ">
+        <MenuHeader />
+        <HomeBanner />
 
-      <CategorySlider />
-      <GreenBgHome />
-      <FooterHome />
+        <CategorySlider />
+        
+        <GreenBgHome />
+        <FooterHome />
+
+      </div>
     </div>
   </b-container>
 </template>
