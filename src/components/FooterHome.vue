@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <b-row class="green-bar" align-v="center">
+  <div class="w-100">
+    <div class="green-bar" align-v="center">
       <b-col>
         <p class="align-middle">DONATE 1% FOR THE WORLD HERE</p>
       </b-col>
-    </b-row>
+    </div>
 
-    <b-row class="text-center footer" align-v="center">
+    <div class="text-center footer" align-v="center">
       <b-col>
         <img src="@/assets/img/facebook-box.png" alt="fb" />
         <img src="@/assets/img/instagram.png" alt="in" />
@@ -16,7 +16,7 @@
         <a href="#"> Contact Us </a>
         <a href="#" class="mar20L"> FAQ</a>
       </b-col>
-    </b-row>
+    </div>
   </div>
 </template>
 

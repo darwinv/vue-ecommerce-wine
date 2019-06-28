@@ -1,6 +1,6 @@
 <template>
   <div class="rect-green">
-    <b-row>
+    <div>
       <b-col sm>
         <div class="text-box">
           <h3>Naturally Delicious</h3>
@@ -23,7 +23,7 @@
           </p>
         </div>
       </b-col>
-    </b-row>
+    </div>
   </div>
 </template>
 
