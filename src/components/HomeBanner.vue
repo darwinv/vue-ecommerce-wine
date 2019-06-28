@@ -1,7 +1,8 @@
 <template>
  
-  <div class="banner-container relative">
-     <b-col sm="4" offset-sm="*6" class='container-text' >
+  <div class="banner-container relative" 
+    :style="{ backgroundImage: 'url('+ require('@/assets/img/banner.png') +')'}">
+     <b-col sm="4" offset-sm="*6" class='container-text'>
       <p>
         Pollux is an online wine shop for budding and experienced wine lovers to purchase artisan wines made the old-fashioned way: by hand.
       </p>
@@ -27,15 +28,14 @@ export default {
   @import "@/styles/global.scss";
 
  .banner-container {
+    background-color: #d2d2d2f5;
+    display: inline-grid;
     height: calc(100vh - 100px);
     max-width: 100%;
     width: 100%;
-    background-image: url(/assets/img/banner.png);
-    background-color: #d2d2d2f5;
     background-size: cover;
     min-height: 85vh;
     background-repeat: no-repeat;
-    display: inline-grid;
     background-position: center center;
   }
   .container-text{
