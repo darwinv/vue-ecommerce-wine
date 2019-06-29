@@ -1,5 +1,5 @@
 <template>
-  <b-col sm class="rect-green col-sm">
+  <b-col sm class="rect-green">
     <b-row>
       <b-col sm >
         <div class="text-box">
@@ -41,7 +41,6 @@ export default {
   background-image: url("../assets/img/rectangle-green.png");
   height: 100%;
   color: white;
-  padding: 4% 0;
   width: 100%;
 }
 
