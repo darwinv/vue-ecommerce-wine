@@ -1,6 +1,6 @@
 <template>
   <b-container fluid >
-    <div class="home ">
+    <div class="home row">
         <MenuHeader />
         <HomeBanner />
 
