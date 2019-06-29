@@ -41,7 +41,8 @@ export default {
   background-image: url("../assets/img/rectangle-green.png");
   height: 100%;
   color: white;
-  width: 101%;
+  padding: 4% 0;
+  width: 100%;
 }
 
 .rect-green .row {
