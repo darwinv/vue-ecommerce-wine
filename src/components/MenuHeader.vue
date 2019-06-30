@@ -1,5 +1,5 @@
 <template>
-  <div id="menu-header">
+  <div id="menu-header" class="w-100">
     <div class="float-left menu-header w-100"  >
         <div class="menu-items menu-left-items">
           <img v-on:click="toggleMenu" src="@/assets/img/menu.png" class="pointer">
