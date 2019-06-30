@@ -46,6 +46,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
 .slide-div{
   display: inline-block;
   width: 33%;
