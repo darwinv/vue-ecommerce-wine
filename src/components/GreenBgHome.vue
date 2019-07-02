@@ -1,5 +1,5 @@
 <template>
-  <div class="rectangle-green">
+  <b-col sm class="rectangle-green">
     <b-row>
       <b-col sm >
         <div class="text-box">
@@ -24,7 +24,7 @@
         </div>
       </b-col>
     </b-row>
-  </div>
+  </b-col>
 </template>
 
 <script>
