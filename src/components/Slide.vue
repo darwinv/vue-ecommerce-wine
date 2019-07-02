@@ -18,7 +18,19 @@ export default {
 
 .slide{
   position: relative;
+  transition: 450ms all;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+  cursor: pointer;
 }
+
+.slide:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+
 
 .caption{
   position: absolute;
@@ -30,5 +42,10 @@ export default {
   height: 20%;
   font-size: calc(9px + 1vw);
   border-top: 1px solid #1d1d1d;
+}
+
+.slide-div:hover ~ .slide-div {
+  -webkit-transform: translate3d(125px, 0, 0);
+  transform: translate3d(125px, 0, 0);
 }
 </style>
