@@ -1,15 +1,18 @@
 <template>
   <div id="menu-header" class="w-100">
-    <div class="float-left menu-header w-100"  >
+    <div class="float-left menu-header w-100" >
+
         <div class="menu-items menu-left-items">
           <img v-on:click="toggleMenu" src="@/assets/img/menu.png" class="pointer">
-          <span class="d-none d-md-inline-block">THE COLLECTION</span>
+          <router-link :to="{ name: 'collection'}" class="d-none d-md-inline-block" >THE COLLECTION</router-link>
           <span class="d-none d-md-inline-block">ABOUT US</span>
         </div>
 
         <div class="menu-logo-content">
           <span class="menu-logo-bg"></span>
-          <img src="@/assets/img/logo.svg" class="menu-logo">
+          <router-link :to="{ name: 'home'}" >
+            <img src="@/assets/img/logo.svg" class="menu-logo">
+          </router-link>
         </div>
 
         <div class="menu-items menu-right-items d-none d-md-block">
@@ -77,6 +80,7 @@ export default {
     padding: 1px 15px;
     width: 200px;
   }
+
   .search-ico{
     padding: 0px;
     right: 10px;
@@ -91,7 +95,7 @@ export default {
     top: 50%;
     transform: translateY(-50%);
   }
-  .menu-items > img, .menu-items > span, .menu-items > div {
+  .menu-items > img, .menu-items > span, .menu-items > div, .menu-items > a {
     margin: 0px 20px 0px 20px;
     font-weight: bold;
   }
@@ -126,6 +130,9 @@ export default {
     font-size: 20px;
   }
 
+  .menu-header a {
+    color: white;
+  }
   .menu-side {
     background-color: #13110fd1;
     color: white;

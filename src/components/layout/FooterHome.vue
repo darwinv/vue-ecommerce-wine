@@ -28,7 +28,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-@import "../styles/global.scss";
+@import "@/styles/global.scss";
 
 .green-bar {
   background-color: #133117;
