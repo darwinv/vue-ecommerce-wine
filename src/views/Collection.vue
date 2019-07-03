@@ -2,13 +2,10 @@
   <b-container fluid >
     <div class="home row">
         <MenuHeader />
-        <BannerBtn />
 
-        <CategorySlider />
-        
-        <GreenBgHome />
+        <BannerSimple />
+
         <FooterHome />
-
       </div>
     </div>
   </b-container>
@@ -19,19 +16,14 @@
 import MenuHeader from "@/components/layout/MenuHeader.vue";
 import FooterHome from "@/components/layout/FooterHome.vue";
 
-import BannerBtn from "@/components/banners/BannerBtn.vue";
-
-import GreenBgHome from "@/components/GreenBgHome.vue";
-import CategorySlider from "@/components/CategorySlider.vue";
+import BannerSimple from "@/components/banners/BannerSimple.vue";
 
 export default {
   name: "home",
   components: {
     MenuHeader,
-    BannerBtn,
-    GreenBgHome,
     FooterHome,
-    CategorySlider
+    BannerSimple
   }
 };
 </script>
