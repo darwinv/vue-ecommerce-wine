@@ -1,7 +1,7 @@
 <template>
-  <b-col sm class="rect-green">
+  <b-col sm class="rectangle-green">
     <b-row>
-      <b-col sm >
+      <b-col sm>
         <div class="text-box">
           <h3>Naturally Delicious</h3>
           <p>
@@ -37,14 +37,14 @@ export default {
 <style lang="scss" scoped>
 @import "../styles/global.scss";
 
-.rect-green {
+.rectangle-green {
   background-image: url("../assets/img/rectangle-green.png");
   height: 100%;
   color: white;
   width: 100%;
 }
 
-.rect-green .row {
+.rectangle-green .row {
   //vertical-align: baseline;
   padding: 10% 0;
 }

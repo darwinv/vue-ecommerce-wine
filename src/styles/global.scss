@@ -1,3 +1,11 @@
+@import "setup/variables.scss";
+
+
+#app{
+    background-color: $base-dark;
+}
+
+
 // General Views CSS
 .container-fluid {
     max-width: 2400px;
@@ -33,4 +41,9 @@ body {
 }
 .global-btn-dark:hover, .global-btn-dark:focus{
     border-color: #b7b7b7;
+}
+//links
+#app a{
+    color: white;
+    text-decoration: none;
 }

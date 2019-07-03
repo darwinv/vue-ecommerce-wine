@@ -26,39 +26,40 @@
 
     </div>
 
-    <div class="menu-side transition-opacity" v-bind:class="{ 'opacity-0': isMenuSideHide }">
-       <div class="d-block d-md-none">
-          <div class="relative" >
-            <input type="text" class="search-input">
-            <img class="search-ico" src="@/assets/img/search.svg">
-          </div>
-          <img class="m-2" src="@/assets/img/car.svg" >
-          <img class="m-2" src="@/assets/img/profile.svg" >
+    <div
+      class="menu-side transition-opacity"
+      v-bind:class="{ 'opacity-0': isMenuSideHide }"
+    >
+      <div class="d-block d-md-none">
+        <div class="relative">
+          <input type="text" class="search-input" />
+          <img class="search-ico" src="@/assets/img/search.svg" />
         </div>
+        <img class="m-2" src="@/assets/img/car.svg" />
+        <img class="m-2" src="@/assets/img/profile.svg" />
+      </div>
 
       <h2>ABOUT US</h2>
-        <a>About Pollux</a>
-        <a>Winery Producers</a>
-        <a>Private Events</a>
+      <a>About Pollux</a>
+      <a>Winery Producers</a>
+      <a>Private Events</a>
       <h2>OUR SHOP</h2>
-        <a>All Wines</a>
-        <a>Best Sellers</a>
-        <a>New Releases</a> 
+      <a>All Wines</a>
+      <a>Best Sellers</a>
+      <a>New Releases</a>
       <h2>LATEST NEWS</h2>
     </div>
-
   </div>
 </template>
 
 <script>
-
 export default {
   name: "MenuHeader",
   data: function() {
-         return  {
-           isMenuSideHide: true,
-         }
-    },
+    return {
+      isMenuSideHide: true
+    };
+  },
   methods: {
     toggleMenu() {
       this.isMenuSideHide = !this.isMenuSideHide;
@@ -154,4 +155,3 @@ export default {
   }
 
 </style>
-
