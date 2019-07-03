@@ -1,7 +1,7 @@
 <template>
   <b-col sm class="rectangle-green">
     <b-row>
-      <b-col sm >
+      <b-col sm>
         <div class="text-box">
           <h3>Naturally Delicious</h3>
           <p>

@@ -1,6 +1,6 @@
 <template>
   <div class="slide">
-    <img class="img-fluid" v-bind:src="slide.src" v-bind:alt="slide.name"> 
+    <img class="img-fluid" v-bind:src="slide.src" v-bind:alt="slide.name" />
     <div class="caption">{{ slide.name }}</div>
   </div>
 </template>
@@ -10,13 +10,12 @@ export default {
   data() {
     return {};
   },
-  props:  ["slide"]
+  props: ["slide"]
 };
 </script>
 
 <style lang="scss" scoped>
-
-.slide{
+.slide {
   position: relative;
   transition: 450ms all;
   -webkit-transform-origin: center left;
@@ -30,11 +29,9 @@ export default {
   opacity: 1;
 }
 
-
-
-.caption{
+.caption {
   position: absolute;
-  bottom:0px;
+  bottom: 0px;
   background-color: rgba(0, 0, 0, 0.54);
   left: 0;
   right: 0;
