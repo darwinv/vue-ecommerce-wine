@@ -4,7 +4,7 @@
         <MenuHeader />
 
         <BannerSimple />
-
+        <FilterProduct />
         <FooterHome />
       </div>
     </div>
@@ -18,12 +18,15 @@ import FooterHome from "@/components/layout/FooterHome.vue";
 
 import BannerSimple from "@/components/banners/BannerSimple.vue";
 
+import FilterProduct from "@/components/product/FilterProduct.vue";
+
 export default {
   name: "home",
   components: {
     MenuHeader,
     FooterHome,
-    BannerSimple
+    BannerSimple,
+    FilterProduct
   }
 };
 </script>
