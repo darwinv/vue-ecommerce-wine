@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Slide from "@/components/Slide.vue";
+import Slide from "@/components/home/AppSlide.vue";
 
 export default {
   data() {

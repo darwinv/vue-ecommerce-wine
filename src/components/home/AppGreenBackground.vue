@@ -29,16 +29,16 @@
 
 <script>
 export default {
-  name: "GreenBgHome"
+  name: "AppGreenBackground"
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-@import "../styles/global.scss";
+@import "@/styles/global.scss";
 
 .rectangle-green {
-  background-image: url("../assets/img/rectangle-green.png");
+  background-image: url("../../assets/img/rectangle-green.png");
   height: 100%;
   color: white;
   width: 100%;
