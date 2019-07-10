@@ -1,11 +1,11 @@
 <template>
   <b-container fluid >
     <div class="home row">
-        <MenuHeader />
+        <AppMenuHeader />
 
         <BannerSimple />
 
-        <FooterHome />
+        <AppFooter />
       </div>
     </div>
   </b-container>
@@ -13,16 +13,16 @@
 
 <script>
 // @ is an alias to /src
-import MenuHeader from "@/components/layout/MenuHeader.vue";
-import FooterHome from "@/components/layout/FooterHome.vue";
+import AppMenuHeader from "@/components/layout/AppMenuHeader.vue";
+import AppFooter from "@/components/layout/AppFooter.vue";
 
 import BannerSimple from "@/components/banners/BannerSimple.vue";
 
 export default {
   name: "home",
   components: {
-    MenuHeader,
-    FooterHome,
+    AppMenuHeader,
+    AppFooter,
     BannerSimple
   }
 };

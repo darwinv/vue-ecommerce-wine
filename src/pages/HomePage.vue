@@ -1,13 +1,13 @@
 <template>
   <b-container fluid >
     <div class="home row">
-        <MenuHeader />
+        <AppMenuHeader />
         <BannerBtn />
 
         <CategorySlider />
         
-        <GreenBgHome />
-        <FooterHome />
+        <AppGreenBackground />
+        <AppFooter />
 
       </div>
     </div>
@@ -16,21 +16,21 @@
 
 <script>
 // @ is an alias to /src
-import MenuHeader from "@/components/layout/MenuHeader.vue";
-import FooterHome from "@/components/layout/FooterHome.vue";
+import AppMenuHeader from "@/components/layout/AppMenuHeader.vue";
+import AppFooter from "@/components/layout/AppFooter.vue";
 
 import BannerBtn from "@/components/banners/BannerBtn.vue";
 
-import GreenBgHome from "@/components/GreenBgHome.vue";
+import AppGreenBackground from "@/components/layout/AppGreenBackground.vue";
 import CategorySlider from "@/components/CategorySlider.vue";
 
 export default {
-  name: "home",
+  name: "home", 
   components: {
-    MenuHeader,
+    AppMenuHeader,
     BannerBtn,
-    GreenBgHome,
-    FooterHome,
+    AppGreenBackground,
+    AppFooter,
     CategorySlider
   }
 };

@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "FooterHome"
+  name: "AppFooter"
 };
 </script>
 
