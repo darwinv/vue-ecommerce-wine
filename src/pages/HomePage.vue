@@ -21,8 +21,8 @@ import AppFooter from "@/components/layout/AppFooter.vue";
 
 import BannerBtn from "@/components/banners/BannerBtn.vue";
 
-import AppGreenBackground from "@/components/layout/AppGreenBackground.vue";
-import CategorySlider from "@/components/CategorySlider.vue";
+import AppGreenBackground from "@/components/home/AppGreenBackground.vue";
+import CategorySlider from "@/components/home/CategorySlider.vue";
 
 export default {
   name: "home", 
