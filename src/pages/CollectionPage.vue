@@ -2,9 +2,8 @@
   <b-container fluid >
     <div class="home row">
         <AppMenuHeader />
-
         <BannerSimple />
-
+        <FilterProduct />
         <AppFooter />
       </div>
     </div>
@@ -18,9 +17,13 @@ import AppFooter from "@/components/layout/AppFooter.vue";
 
 import BannerSimple from "@/components/banners/BannerSimple.vue";
 
+import FilterProduct from "@/components/product/FilterProduct.vue";
+
 export default {
   name: "home",
   components: {
+    BannerSimple,
+    FilterProduct,
     AppMenuHeader,
     AppFooter,
     BannerSimple
