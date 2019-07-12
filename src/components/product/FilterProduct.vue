@@ -20,12 +20,39 @@
       </div>
       <div class="filter-container" >
         <div class="float-left">
-            ALL READ <button class="btn-circle ml-4">+</button>
+            <span>
+              {{textColor}}<button v-on:click="toggleFilter()" class="btn-circle bg-red ml-4">
+                  <span v-if="isFilterDisplay">-</span>
+                  <span v-else>+</span>
+              </button>
+            </span>
+            
+            <span v-bind:class="{ 'opacity-0': !isFilterDisplay }">
+              <button v-on:click="FilterChange('ALL RED')" class="btn-circle bg-pink ml-4">
+                  &nbsp;
+              </button>
+              <button v-on:click="FilterChange('ALL YELLOW')" class="btn-circle bg-yellow ml-4">
+                  &nbsp;
+              </button>
+              <button v-on:click="FilterChange('ALL WHITE')" class="btn-circle bg-white ml-4">
+                  &nbsp;
+              </button>
+            </span>
         </div>
         <div class="float-right size-small">
             <div class="color-gray3">
               PRICE:
-              <span class="border-gray">HIGH - LOW</span>
+              <span class="border-gray" >
+                <button class="btn-filter-price" v-on:click="toggleFilterPrice(1)"
+                  v-bind:class="{ 'active': sortLower == 1 }">
+                    HIGH
+                </button>-
+                <button class="btn-filter-price" v-on:click="toggleFilterPrice(2)"
+                  v-bind:class="{ 'active': sortLower == 2 }">
+                    LOW
+                </button>
+                  
+              </span>
             </div>
             <div class="mt-4">
               <span>4 - 68 Items</span>
@@ -36,9 +63,29 @@
 
 </template>
 
+
 <script>
 export default {
-  name: "FilterProduct"
+  name: "FilterProduct",
+  data: function() {
+    return {
+      isFilterDisplay: false,
+      textColor: 'ALL',
+      sortLower: null,
+    };
+  },
+  methods: {
+    toggleFilter() {
+      this.isFilterDisplay = !this.isFilterDisplay;
+    },
+    FilterChange(textColor) {
+      this.textColor = textColor;
+      this.toggleFilter();
+    },
+    toggleFilterPrice(value) {
+      this.sortLower = value;
+    }
+  }
 };
 </script>
 
@@ -71,13 +118,30 @@ export default {
   }
   .btn-circle{
     border-color: white;
-    background-color: #67123A;
     color: white;
     border-radius: 50%;
     width: 30px;
     height: 30px;
   }
-  .filter-container{
+
+  .bg-red{
+    background-color: #67123A;
+  }
+  .bg-pink{
+    background-color: #CA6489;
+  }
+  .bg-yellow{
+    background-color: #EFBC3A;
+  }
+  .bg-white{
+    background-color: #FFFFFF;
+  }
+
+  
+  
+  
+
+  .filter-container {
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 35px;
@@ -86,13 +150,14 @@ export default {
     vertical-align: middle;
   }
 
-  /* Small devices  */
-  @media (max-width: 576px) {
-    .banner-container span.title{
-      font-size: 44px;
-      margin-left: auto;
-      margin-right: auto;
-      left: 0px;
-    }
+  .btn-filter-price {
+    background-color: #ff000000;
+    color: #999999;
+    border: none;
   }
+  .btn-filter-price.active{
+    color: white;
+  }
+
+
 </style>

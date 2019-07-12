@@ -54,7 +54,7 @@
 
 <script>
 export default {
-  name: "MenuHeader",
+  name: "AppMenuHeader",
   data: function() {
     return {
       isMenuSideHide: true

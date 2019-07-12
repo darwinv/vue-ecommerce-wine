@@ -1,5 +1,5 @@
 <template>
-  <div class="slides">
+  <div id="slider_id" class="slides">
     <h4>SELECT A CATEGORY</h4>
     <div class="slides-inner">
       <div class="slide-div" v-for="slide in slides" :key="slide">
@@ -7,12 +7,15 @@
       </div>
     </div>
 
-    <progress max="100" value="80"></progress>
+    <div class="progress-container">
+        <div class="progress-bar" id="mybar"> </div>
+
+    </div>
   </div>
 </template>
 
 <script>
-import Slide from "@/components/Slide.vue";
+import Slide from "@/components/home/AppSlide.vue";
 
 export default {
   data() {
@@ -54,9 +57,19 @@ export default {
   },
 
   mounted: function() {
-    let singleWidth = this.$el.clientWidth / this.itemsPerSlide;
-    this.$set("singleWidth", singleWidth);
-    this.$set("innerWidth", innerWidth * this.slides.length);
+    //let singleWidth = this.$el.clientWidth / this.itemsPerSlide;
+    //this.$set("singleWidth", singleWidth);
+    //.$set("innerWidth", innerWidth * this.slides.length);
+
+      var row = document.getElementById("slider_id")
+      row.onscroll = function() {myFunction()};
+
+      function myFunction() {
+        var winScroll = row.scrollLeft;
+        var width = row.scrollWidth - row.clientWidth
+        var scrolled = (winScroll / width) * 100;
+        document.getElementById("mybar").style.width = scrolled + "%";
+        }
   }
 };
 </script>
@@ -102,29 +115,17 @@ export default {
   font-weight: bold;
 }
 
-progress {
-  -webkit-appearance: none;
-  border: 1px solid;
+.progress-container {
+    width: 60%;
+    height: 8px;
+    position: sticky;
+    background: #13121240;
+    left: 20%;
+    border: 1px #fff2f2 solid;
 }
-
-progress[value] {
-  /* Eliminamos la apariencia por defecto 
--webkit-appearance: none;
--moz-appearance: none;
-appearance: none;
-*/
-  height: 2.5%;
-  width: 69%;
-  margin-top: 4%;
-}
-
-progress::-moz-progress-bar {
-  background: #203c26;
-}
-progress::-webkit-progress-value {
-  background-color: #203c26;
-}
-progress::-webkit-progress-bar {
-  background-color: #e6e6e6;
+.progress-bar {
+  height: 8px;
+  background: #2e683a;
+  width: 0%;
 }
 </style>
