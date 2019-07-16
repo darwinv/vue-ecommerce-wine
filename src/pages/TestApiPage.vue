@@ -7,7 +7,6 @@
 
         <AppFooter />
       </div>
-    </div>
   </b-container>
 </template>
 
@@ -18,6 +17,7 @@ import AppFooter from "@/components/layout/AppFooter.vue";
 import BannerSimple from "@/components/banners/BannerSimple.vue";
 import { repofactory } from "@/common/repo_factory.js";
 const PostRepository = repofactory.get('posts')
+const UserRepository = repofactory.get('users')
 
 export default {
   name: "ApiPage",
@@ -33,7 +33,9 @@ export default {
   methods:{
 		async fetch (){
 			const { data } = await PostRepository.get();
-			console.log(data);
+      console.log(data);
+      var data2 = await UserRepository.get();
+      console.log(data2);
 		}
   }
 };
