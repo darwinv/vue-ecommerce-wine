@@ -4,6 +4,7 @@
         <AppMenuHeader />
         <BannerSimple />
         <FilterProduct />
+        <Product />
         <AppFooter />
       </div>
     </div>
@@ -18,6 +19,7 @@ import AppFooter from "@/components/layout/AppFooter.vue";
 import BannerSimple from "@/components/banners/BannerSimple.vue";
 
 import FilterProduct from "@/components/product/FilterProduct.vue";
+import Product from "@/components/product/Product.vue";
 
 export default {
   name: "home",
@@ -26,7 +28,8 @@ export default {
     FilterProduct,
     AppMenuHeader,
     AppFooter,
-    BannerSimple
+    BannerSimple,
+    Product
   }
 };
 </script>
