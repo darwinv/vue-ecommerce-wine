@@ -7,7 +7,7 @@
         <CategorySlider />
         
         <AppGreenBackground />
-        <AppFooter />
+        <AppFooter type="home"/>
 
       </div>
     </div>
