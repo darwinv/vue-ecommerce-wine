@@ -1,7 +1,9 @@
 <template>
-  <div id="slider_id" class="slides">
+  <div id="slider_id" class="slides" ref="sli">
     <h4>SELECT A CATEGORY</h4>
-    <div class="slides-inner">
+    <div class="slides-inner" 
+    v-on:mouseover="mouseover"
+    v-on:mouseleave="mouseleave">
       <div class="slide-div" v-for="slide in slides" :key="slide">
         <Slide v-bind:slide="slide"> </Slide>
       </div>
@@ -55,11 +57,24 @@ export default {
   components: {
     Slide
   },
+  methods: {
+    mouseover: function(){
+  
+      var elemnt = this.$refs.sli;
+        // horizontal and vertical scroll increments
+      let xScroll = elemnt.scrollWidth;
+      //elemnt.scrollBy(,0);
+      elemnt.scrollBy({ top: 0, left: xScroll, behavior: 'smooth'});
 
+      console.log("on");
+    },
+    mouseleave: function(){
+      var elemnt = this.$refs.sli;
+      elemnt.scrollTo({ top: 0, left: 0, behavior: 'smooth'});
+      console.log("out s ");
+    }
+  },
   mounted: function() {
-    //let singleWidth = this.$el.clientWidth / this.itemsPerSlide;
-    //this.$set("singleWidth", singleWidth);
-    //.$set("innerWidth", innerWidth * this.slides.length);
 
       var row = document.getElementById("slider_id")
       row.onscroll = function() {myFunction()};
