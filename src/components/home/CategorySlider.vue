@@ -61,17 +61,12 @@ export default {
     mouseover: function(){
   
       var elemnt = this.$refs.sli;
-        // horizontal and vertical scroll increments
-      let xScroll = elemnt.scrollWidth;
-      //elemnt.scrollBy(,0);
+      var xScroll = elemnt.scrollWidth;
       elemnt.scrollBy({ top: 0, left: xScroll, behavior: 'smooth'});
-
-      console.log("on");
     },
     mouseleave: function(){
       var elemnt = this.$refs.sli;
       elemnt.scrollTo({ top: 0, left: 0, behavior: 'smooth'});
-      console.log("out s ");
     }
   },
   mounted: function() {
