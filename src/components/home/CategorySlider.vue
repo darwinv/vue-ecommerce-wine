@@ -59,15 +59,20 @@ export default {
   },
   methods: {
     mouseover: function(){
-  
+      setTimeout(this.scrollsmooth, 500);
+    },
+    mouseleave: function(){
+      setTimeout(this.scrollback, 1000);
+    },
+    scrollsmooth: function(){
       var elemnt = this.$refs.sli;
       var xScroll = elemnt.scrollWidth;
       elemnt.scrollBy({ top: 0, left: xScroll, behavior: 'smooth'});
     },
-    mouseleave: function(){
+    scrollback: function(){
       var elemnt = this.$refs.sli;
       elemnt.scrollTo({ top: 0, left: 0, behavior: 'smooth'});
-    }
+    }      
   },
   mounted: function() {
 
