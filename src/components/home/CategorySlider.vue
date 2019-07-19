@@ -1,7 +1,11 @@
 <template>
-  <div id="slider_id" class="slides">
-    <h4>SELECT A CATEGORY</h4>
-    <div class="slides-inner">
+<div> 
+  <h4>SELECT A CATEGORY</h4> 
+
+  <div id="slider_id" class="slides" ref="sli">
+    <div class="slides-inner" 
+    v-on:mouseover="mouseover"
+    v-on:mouseleave="mouseleave">
       <div class="slide-div" v-for="slide in slides" :key="slide">
         <Slide v-bind:slide="slide"> </Slide>
       </div>
@@ -12,6 +16,7 @@
 
     </div>
   </div>
+ </div> 
 </template>
 
 <script>
@@ -55,11 +60,24 @@ export default {
   components: {
     Slide
   },
-
+  methods: {
+    mouseover: function(){
+      setTimeout(this.scrollsmooth, 500);
+    },
+    mouseleave: function(){
+      setTimeout(this.scrollback, 1000);
+    },
+    scrollsmooth: function(){
+      var elemnt = this.$refs.sli;
+      var xScroll = elemnt.scrollWidth;
+      elemnt.scrollBy({ top: 0, left: xScroll, behavior: 'smooth'});
+    },
+    scrollback: function(){
+      var elemnt = this.$refs.sli;
+      elemnt.scrollTo({ top: 0, left: 0, behavior: 'smooth'});
+    }      
+  },
   mounted: function() {
-    //let singleWidth = this.$el.clientWidth / this.itemsPerSlide;
-    //this.$set("singleWidth", singleWidth);
-    //.$set("innerWidth", innerWidth * this.slides.length);
 
       var row = document.getElementById("slider_id")
       row.onscroll = function() {myFunction()};
@@ -110,9 +128,10 @@ export default {
   width: 100%;
 }
 
-.slides h4 {
+ div > h4 {
   font-size: calc(4px + 1vw);
   font-weight: bold;
+  color: white;
 }
 
 .progress-container {
