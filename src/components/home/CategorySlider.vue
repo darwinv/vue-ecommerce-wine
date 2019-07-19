@@ -1,6 +1,8 @@
 <template>
+<div> 
+  <h4>SELECT A CATEGORY</h4> 
+
   <div id="slider_id" class="slides" ref="sli">
-    <h4>SELECT A CATEGORY</h4>
     <div class="slides-inner" 
     v-on:mouseover="mouseover"
     v-on:mouseleave="mouseleave">
@@ -14,6 +16,7 @@
 
     </div>
   </div>
+ </div> 
 </template>
 
 <script>
@@ -125,9 +128,10 @@ export default {
   width: 100%;
 }
 
-.slides h4 {
+ div > h4 {
   font-size: calc(4px + 1vw);
   font-weight: bold;
+  color: white;
 }
 
 .progress-container {
