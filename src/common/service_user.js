@@ -1,6 +1,6 @@
 import api from "./api";
 
-const resource = "https://jsonplaceholder.typicode.com/users";
+const resource = "/users";
 export default {
   get() {
     return api.get(`${resource}`);
