@@ -1,6 +1,6 @@
 <template>
   <div
-    class="banner-container relative"
+    class="banner-container relative banner-full-height-menu"
     :style="{
       backgroundImage: 'url(' + require('@/assets/img/banner.png') + ')'
     }"
@@ -35,7 +35,6 @@ export default {
 .banner-container {
   background-color: #d2d2d2f5;
   display: inline-grid;
-  height: calc(100vh - 100px);
   max-width: 100%;
   width: 100%;
   background-size: cover;
