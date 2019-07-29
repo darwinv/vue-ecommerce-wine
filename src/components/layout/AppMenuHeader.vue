@@ -44,7 +44,7 @@
       <a>Winery Producers</a>
       <a>Private Events</a>
       <h2>OUR SHOP</h2>
-      <a>All Wines</a>
+      <router-link :to="{ name: 'collection'}" >All Wines</router-link>
       <a>Best Sellers</a>
       <a>New Releases</a>
       <h2>LATEST NEWS</h2>

@@ -1,97 +1,103 @@
 <template>
   <div  class="container-component">
     <div >
-      <div class="product-container" 
-        :style="{ backgroundImage: 'url('+ require('@/assets/img/product/product_bg.svg') +')'}">
-          <div class="mt-1 title-product">
-            <span>GRAMERCY CELLARS</span>
-          </div>
-          <div>
-            <img class="img-product" src="@/assets/img/product/bottle.png">
-          </div>
-          <div class="price">
-            <span>$50</span>
-          </div>
-          <div class="description">
-            <span>Cabernet Sauvignon</span>
-          </div>
-          <div class="address">
-            <span>2014 | Columbia Valley, WA.</span>
-          </div>
-          <div class="foot-product mt-3">
-            <button class="add-to-car"> <img src="@/assets/img/cart_black.svg" ></button>
-            <button class="plus-product"><img src="@/assets/img/plus.svg" ></button>
-          </div>
-      </div>
+      <router-link :to="{ name: 'product-detail'}" class="" >
+        <div class="product-container" 
+          :style="{ backgroundImage: 'url('+ require('@/assets/img/product/product_bg.svg') +')'}">
+            <div class="mt-1 title-product">
+              <span>GRAMERCY CELLARS</span>
+            </div>
+            <div>
+              <img class="img-product" src="@/assets/img/product/bottle.png">
+            </div>
+            <div class="price">
+              <span>$50</span>
+            </div>
+            <div class="description">
+              <span>Cabernet Sauvignon</span>
+            </div>
+            <div class="address">
+              <span>2014 | Columbia Valley, WA.</span>
+            </div>
+            <div class="foot-product mt-3">
+              <button class="add-to-car"> <img src="@/assets/img/cart_black.svg" ></button>
+              <button class="plus-product"><img src="@/assets/img/plus.svg" ></button>
+            </div>
+        </div>
+      </router-link>
+      <router-link :to="{ name: 'product-detail'}" class="" >
+        <div class="product-container" 
+          :style="{ backgroundImage: 'url('+ require('@/assets/img/product/product_bg.svg') +')'}">
+            <div class="mt-1 title-product">
+              <span>GRAMERCY CELLARS</span>
+            </div>
+            <div>
+              <img class="img-product" src="@/assets/img/product/bottle.png">
+            </div>
+            <div class="price">
+              <span>$50</span>
+            </div>
+            <div class="description">
+              <span>Cabernet Sauvignon</span>
+            </div>
+            <div class="address">
+              <span>2014 | Columbia Valley, WA.</span>
+            </div>
+            <div class="foot-product mt-3">
+              <button class="add-to-car"> <img src="@/assets/img/cart_black.svg" ></button>
+              <button class="plus-product"><img src="@/assets/img/plus.svg" ></button>
+            </div>
+        </div>
+      </router-link>
+      <router-link :to="{ name: 'product-detail'}" class="" >
+        <div class="product-container" 
+          :style="{ backgroundImage: 'url('+ require('@/assets/img/product/product_bg.svg') +')'}">
+            <div class="mt-1 title-product">
+              <span>GRAMERCY CELLARS</span>
+            </div>
+            <div>
+              <img class="img-product" src="@/assets/img/product/bottle.png">
+            </div>
+            <div class="price">
+              <span>$50</span>
+            </div>
+            <div class="description">
+              <span>Cabernet Sauvignon</span>
+            </div>
+            <div class="address">
+              <span>2014 | Columbia Valley, WA.</span>
+            </div>
+            <div class="foot-product mt-3">
+              <button class="add-to-car"> <img src="@/assets/img/cart_black.svg" ></button>
+              <button class="plus-product"><img src="@/assets/img/plus.svg" ></button>
+            </div>
+        </div>
+      </router-link>
+      <router-link :to="{ name: 'product-detail'}" class="" >
+        <div class="product-container" 
+          :style="{ backgroundImage: 'url('+ require('@/assets/img/product/product_bg.svg') +')'}">
+            <div class="mt-1 title-product">
+              <span>GRAMERCY CELLARS</span>
+            </div>
+            <div>
+              <img class="img-product" src="@/assets/img/product/bottle.png">
+            </div>
+            <div class="price">
+              <span>$50</span>
+            </div>
+            <div class="description">
+              <span>Cabernet Sauvignon</span>
+            </div>
+            <div class="address">
+              <span>2014 | Columbia Valley, WA.</span>
+            </div>
+            <div class="foot-product mt-3">
+              <button class="add-to-car"> <img src="@/assets/img/cart_black.svg" ></button>
+              <button class="plus-product"><img src="@/assets/img/plus.svg" ></button>
+            </div>
+        </div>
+      </router-link>
 
-      <div class="product-container" 
-        :style="{ backgroundImage: 'url('+ require('@/assets/img/product/product_bg.svg') +')'}">
-          <div class="mt-1 title-product">
-            <span>GRAMERCY CELLARS</span>
-          </div>
-          <div>
-            <img class="img-product" src="@/assets/img/product/bottle.png">
-          </div>
-          <div class="price">
-            <span>$50</span>
-          </div>
-          <div class="description">
-            <span>Cabernet Sauvignon</span>
-          </div>
-          <div class="address">
-            <span>2014 | Columbia Valley, WA.</span>
-          </div>
-          <div class="foot-product mt-3">
-            <button class="add-to-car"> <img src="@/assets/img/cart_black.svg" ></button>
-            <button class="plus-product"><img src="@/assets/img/plus.svg" ></button>
-          </div>
-      </div>
-
-      <div class="product-container" 
-        :style="{ backgroundImage: 'url('+ require('@/assets/img/product/product_bg.svg') +')'}">
-          <div class="mt-1 title-product">
-            <span>GRAMERCY CELLARS</span>
-          </div>
-          <div>
-            <img class="img-product" src="@/assets/img/product/bottle.png">
-          </div>
-          <div class="price">
-            <span>$50</span>
-          </div>
-          <div class="description">
-            <span>Cabernet Sauvignon</span>
-          </div>
-          <div class="address">
-            <span>2014 | Columbia Valley, WA.</span>
-          </div>
-          <div class="foot-product mt-3">
-            <button class="add-to-car"> <img src="@/assets/img/cart_black.svg" ></button>
-            <button class="plus-product"><img src="@/assets/img/plus.svg" ></button>
-          </div>
-      </div>
-
-      <div class="product-container" 
-        :style="{ backgroundImage: 'url('+ require('@/assets/img/product/product_bg.svg') +')'}">
-          <div class="mt-1 title-product">
-            <span>GRAMERCY CELLARS</span>
-          </div>
-          <div>
-            <img class="img-product" src="@/assets/img/product/bottle.png">
-          </div>
-          <div class="price">
-            <span>$50</span>
-          </div>
-          <div class="description">
-            <span>Cabernet Sauvignon</span>
-          </div>
-          <div class="address">
-            <span>2014 | Columbia Valley, WA.</span>
-          </div>
-          <div class="foot-product mt-3">
-            <button class="add-to-car"> <img src="@/assets/img/cart_black.svg" ></button>
-            <button class="plus-product"><img src="@/assets/img/plus.svg" ></button>
-          </div>
-      </div>
     </div>
   
     <div class="pagination-product">
