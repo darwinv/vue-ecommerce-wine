@@ -34,33 +34,27 @@ export default {
         // axios.get('http://localhost:8000/api').then(resp => { 
         //     console.log(resp.data);
         //  });
-      this.login();
-      //this.getAddress();
+     // this.login();
+      this.getAddress();
   },
   methods:{
-		// async fetch (){
-		// 	const { data } = await PostRepository.get();
-    //   console.log(data);
-    //   var data2 = await UserRepository.get();
-    //   console.log(data2);
-    // }
     async login(){
         let datalogin = {
           "username": "darwin",
-          "password": "intel1345"
+          "password": "intel12345"
         }
-
         try {
-          const { response } = await LoginRepository.login(datalogin);
-          console.log(responses);
+          const { data } = await LoginRepository.login(datalogin);
+          localStorage.setItem('token', data.token);
+          console.log(data);
         } catch (error) {
                 if (error.response) {
                 /*
                 * The request was made and the server responded with a
                 * status code that falls out of the range of 2xx
                 */
-                // console.log(error.response.data);
-                // console.log(error.response.status);
+                console.log(error.response.data);
+                console.log(error.response.status);
                 console.log(error.response);
                 }
             }   
