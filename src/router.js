@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import Home from "./pages/HomePage.vue";
+import Collection from "./pages/CollectionPage.vue";
+import ProductDetail from "./pages/ProductDetailPage.vue";
 
 Vue.use(Router);
 
@@ -10,6 +12,16 @@ export default new Router({
       path: "/",
       name: "home",
       component: Home
+    },
+    {
+      path: "/collection",
+      name: "collection",
+      component: Collection
+    },
+    {
+      path: "/product-detail/1/",
+      name: "product-detail",
+      component: ProductDetail
     },
     {
       path: "/about",

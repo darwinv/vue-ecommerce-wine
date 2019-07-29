@@ -1,15 +1,18 @@
 <template>
   <div id="menu-header" class="w-100">
-    <div class="float-left menu-header w-100"  >
+    <div class="float-left menu-header w-100" >
+
         <div class="menu-items menu-left-items">
           <img v-on:click="toggleMenu" src="@/assets/img/menu.png" class="pointer">
-          <span class="d-none d-md-inline-block">THE COLLECTION</span>
+          <router-link :to="{ name: 'collection'}" class="d-none d-md-inline-block" >THE COLLECTION</router-link>
           <span class="d-none d-md-inline-block">ABOUT US</span>
         </div>
 
         <div class="menu-logo-content">
           <span class="menu-logo-bg"></span>
-          <img src="@/assets/img/logo.svg" class="menu-logo">
+          <router-link :to="{ name: 'home'}" >
+            <img src="@/assets/img/logo.svg" class="menu-logo">
+          </router-link>
         </div>
 
         <div class="menu-items menu-right-items d-none d-md-block">
@@ -23,39 +26,40 @@
 
     </div>
 
-    <div class="menu-side transition-opacity" v-bind:class="{ 'opacity-0': isMenuSideHide }">
-       <div class="d-block d-md-none">
-          <div class="relative" >
-            <input type="text" class="search-input">
-            <img class="search-ico" src="@/assets/img/search.svg">
-          </div>
-          <img class="m-2" src="@/assets/img/car.svg" >
-          <img class="m-2" src="@/assets/img/profile.svg" >
+    <div
+      class="menu-side transition-opacity"
+      v-bind:class="{ 'opacity-0': isMenuSideHide }"
+    >
+      <div class="d-block d-md-none">
+        <div class="relative">
+          <input type="text" class="search-input" />
+          <img class="search-ico" src="@/assets/img/search.svg" />
         </div>
+        <img class="m-2" src="@/assets/img/car.svg" />
+        <img class="m-2" src="@/assets/img/profile.svg" />
+      </div>
 
       <h2>ABOUT US</h2>
-        <a>About Pollux</a>
-        <a>Winery Producers</a>
-        <a>Private Events</a>
+      <a>About Pollux</a>
+      <a>Winery Producers</a>
+      <a>Private Events</a>
       <h2>OUR SHOP</h2>
-        <a>All Wines</a>
-        <a>Best Sellers</a>
-        <a>New Releases</a> 
+      <router-link :to="{ name: 'collection'}" >All Wines</router-link>
+      <a>Best Sellers</a>
+      <a>New Releases</a>
       <h2>LATEST NEWS</h2>
     </div>
-
   </div>
 </template>
 
 <script>
-
 export default {
-  name: "MenuHeader",
+  name: "AppMenuHeader",
   data: function() {
-         return  {
-           isMenuSideHide: true,
-         }
-    },
+    return {
+      isMenuSideHide: true
+    };
+  },
   methods: {
     toggleMenu() {
       this.isMenuSideHide = !this.isMenuSideHide;
@@ -77,6 +81,7 @@ export default {
     padding: 1px 15px;
     width: 200px;
   }
+
   .search-ico{
     padding: 0px;
     right: 10px;
@@ -91,7 +96,7 @@ export default {
     top: 50%;
     transform: translateY(-50%);
   }
-  .menu-items > img, .menu-items > span, .menu-items > div {
+  .menu-items > img, .menu-items > span, .menu-items > div, .menu-items > a {
     margin: 0px 20px 0px 20px;
     font-weight: bold;
   }
@@ -126,6 +131,9 @@ export default {
     font-size: 20px;
   }
 
+  .menu-header a {
+    color: white;
+  }
   .menu-side {
     background-color: #13110fd1;
     color: white;
@@ -147,4 +155,3 @@ export default {
   }
 
 </style>
-

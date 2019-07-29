@@ -1,19 +1,22 @@
 <template>
   <div class="w-100">
-    <div class="green-bar" align-v="center">
+    <div class="green-bar" align-v="center" 
+      v-bind:class="{ 'hide': type==undefined }" >
       <b-col>
         <p class="align-middle p-2">DONATE 1% FOR THE WORLD HERE</p>
       </b-col>
     </div>
 
-    <div class="text-center footer" align-v="center">
+    <div class="text-center" align-v="center"
+      v-bind:class="{ 'footer': type=='home', 'footer-green': type==undefined  }">
+
       <div class="float-left m-ico-footer">
         <img src="@/assets/img/facebook-box.png" alt="fb" />
         <img src="@/assets/img/instagram.png" alt="in" />
       </div>
 
       <div class="float-right m-ico-footer">
-        <a href="#"> Contact Us </a>
+        <a href="#"> Contact Us {{ type }}</a>
         <a href="#" class="mar20L"> FAQ</a>
       </div>
     </div>
@@ -22,13 +25,14 @@
 
 <script>
 export default {
-  name: "FooterHome"
+  name: "AppFooter",
+  props: ['type']
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-@import "../styles/global.scss";
+@import "@/styles/global.scss";
 
 .green-bar {
   background-color: #133117;
@@ -46,8 +50,14 @@ export default {
   margin: 40px 8%;
 }
 
+.footer-green .m-ico-footer {
+    margin: 16px 8% 8px 8%;
+}
+.footer-green {
+  background-color: #00603A;
+  display: flow-root;
+}
 .footer {
-  background-color: #2e2e2e;
   color: white;
   height: 122px;
   margin-right: 0;

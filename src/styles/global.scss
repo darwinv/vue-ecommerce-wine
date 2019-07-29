@@ -1,6 +1,24 @@
+@import "setup/variables.scss";
+
+
+#app{
+    background-color: $base-dark;
+}
+
+
 // General Views CSS
 .container-fluid {
     max-width: 2400px;
+}
+.bold{
+   font-weight: bold;
+}
+.banner-full-height-menu{
+    height: calc(100vh - 100px);
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 body {
     background-color: #1e1e1e !important;
@@ -23,6 +41,12 @@ body {
 .w-100{
     width: 100%;
 }
+.size-small{
+    font-size: small;
+}
+.hide{
+    display: none;
+}
 // Common Bottons
 .global-btn-dark {
     background-color: #1c1813;
@@ -33,4 +57,15 @@ body {
 }
 .global-btn-dark:hover, .global-btn-dark:focus{
     border-color: #b7b7b7;
+}
+.btn-gray {
+    background-color: #535353;
+    color: white;
+    padding: 3px 12px;
+    border: 1px solid #ffffffc7;
+}
+//links
+.app a{
+    color: white;
+    text-decoration: none;
 }
