@@ -20,6 +20,7 @@
               <div class="comment">FREE SHIPPINH + 6 BOTTLES</div>
             </div>
           <div  class="wishlist">ADD TO WISHLIST
+            <img class="ico-start" src="@/assets/img/WISHLISTSTAR.png" >
             </div>
         </b-col>
   </b-row>
@@ -36,18 +37,20 @@ export default {
   @import "@/styles/global.scss";
   .row.banner-container.relative.banner-full-height-menu {
       background-color: #2a2a2a;
+      margin: 0px;
   }
   .bottle-img{
     margin: auto;
   }
   .bottle-img img{
-        /* width: 100%; */
+    /* width: 100%; */
     position: absolute;
-    bottom: -228px;
+    bottom: -236px;
     left: -50px;
   }
   .product-name{
     padding: 10% 0% 0% 10%;
+    text-align: right;
   }
   .product-name h2{
     font-size: 54px;
@@ -83,5 +86,9 @@ export default {
 }
 .bg-white-detail{
   background-color: #d5d5d5;
+}
+.ico-start{
+      margin: 0px 3px 8px 5px;
+    width: 25px;
 }
 </style>
