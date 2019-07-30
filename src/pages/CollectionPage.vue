@@ -4,7 +4,7 @@
         <AppMenuHeader />
         <BannerSimple />
         <FilterProduct />
-        <Product />
+        <ProductList />
         <AppFooter />
     </div>
   </b-container>
@@ -18,8 +18,7 @@ import AppFooter from "@/components/layout/AppFooter.vue";
 import BannerSimple from "@/components/banners/BannerSimple.vue";
 
 import FilterProduct from "@/components/product/FilterProduct.vue";
-import Product from "@/components/product/Product.vue";
-
+import ProductList from "@/components/product/ProductList.vue";
 export default {
   name: "home",
   components: {
@@ -27,7 +26,7 @@ export default {
     FilterProduct,
     AppMenuHeader,
     AppFooter,
-    Product
+    ProductList
   }
 };
 </script>
