@@ -1,5 +1,6 @@
 <template>
-  <div class="" >
+  <div class="container-component" 
+  :style="{ backgroundImage: 'url('+ require('@/assets/img/product/welovebg.png') +')'}">
     <div class="container-welove">
       <div class="tab">
         <button class="tablinks active" v-on:click="chageTab($event, 'WHAT')" >
@@ -140,5 +141,8 @@ export default {
 }
 .ico-vertical{
   margin: 5px 15px;
+}
+.container-component{
+  background-color: #2a2a2a;
 }
 </style>

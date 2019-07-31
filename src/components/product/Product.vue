@@ -66,6 +66,7 @@ export default {
   }
   .img-product{
     max-width: 90%;
+    max-height: 285px;
   }
   .title-product{
     font-size: 18px;
