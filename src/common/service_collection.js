@@ -1,9 +1,8 @@
 import api from "./api";
 
-const resource = "/api/login/";
-//const resource = "/api-token-auth/";
+const resource = "/api/attributes/";
 export default {
-  login(payload) {
+  collection(payload) {
     return api.post(`${resource}`, payload);
   }
 };
