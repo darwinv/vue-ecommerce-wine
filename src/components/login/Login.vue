@@ -3,7 +3,6 @@
   :style="{ backgroundImage: 'url('+ require('@/assets/img/login/img.png') +')'}">
     <div class="banner-container inner"
     :style="{ backgroundImage: 'url('+ require('@/assets/img/login/login_bg.png') +')'}">
-
         
       <div class="tabs">
         <div class="tab-2">
@@ -28,21 +27,12 @@
                   </label>
                 </div>
             </div>
-
-            
-
             <div class="login-bottom text-center" >
                 <button class="btn-green" >SIGN IN</button>
                 <span>FORGOT YOUR PASSWORD?</span>
                 <span>NOT A MEMBER YET?</span>
             </div>
-
           </div>
-
-            
-
-
-
         </div>
         <div class="tab-2">
           <label for="tab2-2">REGISTER</label>
