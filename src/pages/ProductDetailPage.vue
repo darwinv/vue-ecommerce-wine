@@ -1,6 +1,6 @@
 <template>
   <b-container fluid >
-    <div class="home row">
+    <div class="row">
         <AppMenuHeader />
         <ProductDetailHeader />
         <ProductVerticalDetail />
@@ -19,7 +19,7 @@ import ProductVerticalDetail from "@/components/product/ProductVerticalDetail.vu
 import ProductRelate from "@/components/product/ProductRelate.vue";
 
 export default {
-  name: "home",
+  name: "ProductDetail",
   components: {
     AppMenuHeader,
     AppFooter,

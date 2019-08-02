@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Home from "./pages/HomePage.vue";
 import Collection from "./pages/CollectionPage.vue";
 import ProductDetail from "./pages/ProductDetailPage.vue";
+import Login from "./pages/LoginPage.vue";
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ export default new Router({
       path: "/product-detail/1/",
       name: "product-detail",
       component: ProductDetail
+    },
+    {
+      path: "/login/",
+      name: "login",
+      component: Login
     },
     {
       path: "/about",

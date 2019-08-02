@@ -17,7 +17,8 @@
 
         <div class="menu-items menu-right-items d-none d-md-block">
           <img class="float-right" src="@/assets/img/car.svg" >
-          <img class="float-right" src="@/assets/img/profile.svg" >
+          <router-link :to="{ name: 'login'}" ><img class="float-right" src="@/assets/img/profile.svg" ></router-link>
+          
           <div class="relative float-right" >
             <input type="text" class="search-input">
             <img class="search-ico" src="@/assets/img/search.svg">
