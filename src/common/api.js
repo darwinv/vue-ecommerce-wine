@@ -5,7 +5,7 @@ import axios from "axios";
 
 export default axios.create({
   baseURL: "http://localhost:8000/",
-  //baseURL: "https://jsonplaceholder.typicode.com"
+  //baseURL: "https://polluxwine.com/",
   // In case that you need a token:
   headers: getHeaders()
 });

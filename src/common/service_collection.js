@@ -2,7 +2,7 @@ import api from "./api";
 
 const resource = "/api/attributes/";
 export default {
-  collection(payload) {
+  obtain(payload) {
     return api.post(`${resource}`, payload);
   }
 };

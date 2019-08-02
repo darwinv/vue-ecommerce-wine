@@ -5,6 +5,7 @@ import Collection from "./pages/CollectionPage.vue";
 import ApiPage from "./pages/TestApiPage.vue";
 import ApiLoginTest from "./pages/TestLoginPage.vue";
 
+import ProductDetail from "./pages/ProductDetailPage.vue";
 
 Vue.use(Router);
 
@@ -29,6 +30,11 @@ export default new Router({
       path: "/login_test",
       name: "login_test",
       component: ApiLoginTest
+    },
+    {
+      path: "/product-detail/1/",
+      name: "product-detail",
+      component: ProductDetail
     },
     {
       path: "/about",

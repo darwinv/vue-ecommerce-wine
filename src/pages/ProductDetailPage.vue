@@ -2,9 +2,9 @@
   <b-container fluid >
     <div class="home row">
         <AppMenuHeader />
-        <BannerSimple />
-        <FilterProduct />
-        <ProductList />
+        <ProductDetailHeader />
+        <ProductVerticalDetail />
+        <ProductRelate />
         <AppFooter />
     </div>
   </b-container>
@@ -14,19 +14,18 @@
 // @ is an alias to /src
 import AppMenuHeader from "@/components/layout/AppMenuHeader.vue";
 import AppFooter from "@/components/layout/AppFooter.vue";
+import ProductDetailHeader from "@/components/product/ProductDetailHeader.vue";
+import ProductVerticalDetail from "@/components/product/ProductVerticalDetail.vue";
+import ProductRelate from "@/components/product/ProductRelate.vue";
 
-import BannerSimple from "@/components/banners/BannerSimple.vue";
-
-import FilterProduct from "@/components/product/FilterProduct.vue";
-import ProductList from "@/components/product/ProductList.vue";
 export default {
   name: "home",
   components: {
-    BannerSimple,
-    FilterProduct,
     AppMenuHeader,
     AppFooter,
-    ProductList
+    ProductDetailHeader,
+    ProductVerticalDetail,
+    ProductRelate
   }
 };
 </script>
