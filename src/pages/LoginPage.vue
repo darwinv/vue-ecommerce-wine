@@ -2,9 +2,7 @@
   <b-container fluid >
     <div class="row">
         <AppMenuHeader />
-        <BannerSimple />
-        <FilterProduct />
-        <ProductList />
+        <Login />
         <AppFooter />
     </div>
   </b-container>
@@ -15,18 +13,13 @@
 import AppMenuHeader from "@/components/layout/AppMenuHeader.vue";
 import AppFooter from "@/components/layout/AppFooter.vue";
 
-import BannerSimple from "@/components/banners/BannerSimple.vue";
-
-import FilterProduct from "@/components/product/FilterProduct.vue";
-import ProductList from "@/components/product/ProductList.vue";
+import Login from "@/components/login/Login.vue";
 export default {
-  name: "collection",
+  name: "login",
   components: {
-    BannerSimple,
-    FilterProduct,
+    Login,
     AppMenuHeader,
-    AppFooter,
-    ProductList
+    AppFooter
   }
 };
 </script>

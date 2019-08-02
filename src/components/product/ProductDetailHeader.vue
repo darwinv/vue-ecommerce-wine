@@ -43,10 +43,8 @@ export default {
     margin: auto;
   }
   .bottle-img img{
-    /* width: 100%; */
-    position: absolute;
-    bottom: -236px;
-    left: -50px;
+    max-height: 480px;
+    margin-top: 50px;
   }
   .product-name{
     padding: 10% 0% 0% 10%;
@@ -79,13 +77,10 @@ export default {
 }
 .wishlist {
     position: absolute;
-    bottom: 77px;
+    bottom: 5%;
     right: 21%;
     color: white;
     vertical-align: bottom;
-}
-.bg-white-detail{
-  background-color: #d5d5d5;
 }
 .ico-start{
       margin: 0px 3px 8px 5px;
