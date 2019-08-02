@@ -6,16 +6,16 @@
             <span>GRAMERCY CELLARS</span>
           </div>
           <div>
-            <img class="img-product" src="@/assets/img/product/bottle.png">
+            <img class="img-product" v-bind:src="item.images[0].thumbnail">
           </div>
           <div class="price">
-            <span>$50</span>
+            <span>$ {{item.price}}</span>
           </div>
           <div class="description">
-            <span>Cabernet Sauvignon</span>
+            <span>{{ item.title }}</span>
           </div>
           <div class="address">
-            <span>2014 | Columbia Valley, WA.</span>
+            <span>{{ item.location }}</span>
           </div>
           <div class="foot-product mt-3">
             <button class="add-to-car"> <img src="@/assets/img/cart_black.svg" ></button>
@@ -28,7 +28,11 @@
 
 <script>
 export default {
-  name: "Product"
+  name: "Product",
+    data() {
+    return {};
+  },
+  props: ["item"]
 };
 </script>
 

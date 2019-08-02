@@ -2,7 +2,6 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./pages/HomePage.vue";
 import Collection from "./pages/CollectionPage.vue";
-import ApiPage from "./pages/TestApiPage.vue";
 import ApiLoginTest from "./pages/TestLoginPage.vue";
 
 import ProductDetail from "./pages/ProductDetailPage.vue";
@@ -20,11 +19,6 @@ export default new Router({
       path: "/collection",
       name: "collection",
       component: Collection
-    },
-    {
-      path: "/api_test",
-      name: "api_test",
-      component: ApiPage
     },
     {
       path: "/login_test",

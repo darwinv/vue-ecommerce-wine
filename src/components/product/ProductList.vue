@@ -1,11 +1,19 @@
 <template>
   <div  class="container-component">
-    <div >
+    <!-- <div >
       <Product />
       <Product />
       <Product />
       <Product />
-    </div>
+    </div> -->
+    <!-- <div>
+      {{products}}
+    </div> -->
+       <div v-for="item in products" :key="item.id">
+         <!-- {{item.id}}  -->
+        <Product v-bind:item="item"> </Product>
+       </div> 
+
     <div class="pagination-product">
       <a  class="circle-pagination" href="#">&laquo;</a>
       <a href="#">1</a>
@@ -32,9 +40,14 @@ export default {
   components: {
     Product
   },
+  data(){
+    return {
+      products: []//this.getCollection()
+    };
+  },
    mounted(){
-      console.log("hola mundo");
-      this.getCollection();
+      //console.log(this.products);
+     this.getCollection();
   },
     methods:{
     async getCollection(){
@@ -42,7 +55,8 @@ export default {
         }
         try {
           const { data } = await Collection.obtain(payload);
-          console.log(data);
+//          console.log(data);
+          this.products = data
         } catch (error) {
                 if (error.response) {
                 /*
