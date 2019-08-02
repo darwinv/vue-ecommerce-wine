@@ -1,16 +1,6 @@
 <template>
   <div  class="container-component">
-    <!-- <div >
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-    </div> -->
-    <!-- <div>
-      {{products}}
-    </div> -->
        <div v-for="item in products" :key="item.id">
-         <!-- {{item.id}}  -->
         <Product v-bind:item="item"> </Product>
        </div> 
 
@@ -42,7 +32,7 @@ export default {
   },
   data(){
     return {
-      products: []//this.getCollection()
+      products: []
     };
   },
    mounted(){
