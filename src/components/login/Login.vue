@@ -27,18 +27,50 @@
                   </label>
                 </div>
             </div>
-            <div class="login-bottom text-center" >
+            <div class="login-bottom text-center basic-text" >
                 <button class="btn-green" >SIGN IN</button>
                 <span>FORGOT YOUR PASSWORD?</span>
                 <span>NOT A MEMBER YET?</span>
             </div>
           </div>
         </div>
+
         <div class="tab-2">
           <label for="tab2-2">REGISTER</label>
           <input id="tab2-2" name="tabs-two" type="radio">
           <div>
-            REGISTER
+            
+            <div class="text-left form-login" >
+
+                <span>USER</span>
+                <input type="text" name="user">
+
+                <span>EMAIL</span>
+                <input type="text" name="email">
+
+                <span>PASSWORD</span>
+                <input type="password" name="password">
+
+                <span>CONFIRM PASSWORD</span>
+                <input type="password" name="password">
+
+            </div>
+
+            <div class="inline-block basic-text" >
+                <span>OR SING IN WITH:</span>
+                <span>GOOGLE+</span>
+                <span>FACEBOOK</span>
+              </div>
+            
+
+            <div class="login-bottom text-center basic-text" >
+              
+                <button class="btn-green" >SIGN UP</button>
+                <span>ALREADY HAVE AN ACCOUNT?</span>
+            </div>
+
+
+
           </div>
         </div>
       </div>
@@ -63,16 +95,26 @@ export default {
 <style lang="scss" scoped>
   @import "@/styles/global.scss";
   
-
+.inline-block.basic-text {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+  .inline-block.basic-text span {
+    margin-right: 15px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.basic-text span{
+  color: white;
+    font-size: 0.8rem;
+}
 .form-login{
     width: 60%;
     margin: auto;
 }
 .login-bottom span {
     display: block;
-    color: white;
     margin-top: 17px;
-    font-size: 0.8rem;  
 }
 .remenber {
     color: white;
