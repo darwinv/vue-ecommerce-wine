@@ -4,6 +4,8 @@
     <div class="banner-container inner"
     :style="{ backgroundImage: 'url('+ require('@/assets/img/login/login_bg.png') +')'}">
         
+
+
       <div class="tabs">
         <div class="tab-2">
           <label for="tab2-1">LOG IN</label>
@@ -12,10 +14,10 @@
           <div>
             <div class="text-left form-login" >
                 <span>USER OR EMAIL</span>
-                <input type="text" name="user">
+                <input type="text"  v-model="input.username" name="user">
 
                 <span>PASSWORD</span>
-                <input type="password" name="password">
+                <input type="password" v-model="input.password" name="password">
 
                 <div class="text-right remenber">
                   <div>
@@ -28,7 +30,12 @@
                 </div>
             </div>
             <div class="login-bottom text-center basic-text" >
-                <button class="btn-green" >SIGN IN</button>
+                  <div class="alert alert-danger" v-if="errors && errors.length">
+                    <ul>
+                        <li v-for="error in errors" >{{ error }}</li>
+                    </ul>
+                  </div>
+                <button v-on:click="login()" class="btn-green" >SIGN IN</button>
                 <span>FORGOT YOUR PASSWORD?</span>
                 <span>NOT A MEMBER YET?</span>
             </div>
@@ -84,11 +91,48 @@
 
 <script>
 import Product from "@/components/product/Product.vue";
+import { repofactory } from "@/common/repo_factory.js";
+const LoginRepository = repofactory.get('login')
+
 export default {
   name: "ProductRelate",
   components: {
     Product
-  }
+  },
+    data () {
+        return {
+            input: {
+                user: "",
+                password: ""
+            },
+            resp: "",
+            errors: []
+        }
+    },
+  methods:{
+    async login(){
+
+        try {
+          const { data } = await LoginRepository.login(this.input);
+          localStorage.setItem('token', data.token);
+          console.log(data);
+          this.$router.push({name:'home'}) 
+        } catch (error) {
+                if (error.response) {
+                /*
+                * The request was made and the server responded with a
+                * status code that falls out of the range of 2xx
+                */
+               if (error.response.data.non_field_errors){
+                  this.errors.push("Credencales erroneas");
+                }
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response);
+                }
+            }   
+    }
+  }    
 };
 </script>
 
