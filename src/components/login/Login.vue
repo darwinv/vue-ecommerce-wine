@@ -62,20 +62,15 @@
                 <span>FACEBOOK</span>
               </div>
             
-
             <div class="login-bottom text-center basic-text" >
               
                 <button class="btn-green" >SIGN UP</button>
                 <span>ALREADY HAVE AN ACCOUNT?</span>
             </div>
-
-
-
+            
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
     
@@ -126,7 +121,6 @@ export default {
 .remenber div{
     display: inline-block;
 }
-
 
 .form-login span {
     display: block;
