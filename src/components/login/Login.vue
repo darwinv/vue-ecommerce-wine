@@ -99,7 +99,7 @@ export default {
     margin-top: 15px;
     margin-bottom: 15px;
 }
-  .inline-block.basic-text span {
+.inline-block.basic-text span {
     margin-right: 15px;
     margin-top: 10px;
     font-weight: bold;
@@ -128,7 +128,7 @@ export default {
 }
 
 
-  .form-login span {
+.form-login span {
     display: block;
     color: #ffffff;
     margin-top: 30px;
