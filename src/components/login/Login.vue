@@ -21,7 +21,7 @@
 
                 <div class="text-right remenber">
                   <div>
-                    REMENBER ME 
+                    REMEMBER ME 
                   </div>
                   <label class="container-check">
                     <input type="checkbox">
@@ -49,14 +49,12 @@
             
             <div class="text-left form-login" >
 
-                <span>USER</span>
-                <input type="text" name="user">
-
                 <span>EMAIL</span>
-                <input type="text" name="email">
+                <input v-on:keyup="isEmailValid()"
+                 type="text" v-model="register.email" name="email">
 
                 <span>PASSWORD</span>
-                <input type="password" name="password">
+                <input type="password" v-model="register.password" name="password">
 
                 <span>CONFIRM PASSWORD</span>
                 <input type="password" name="password">
@@ -71,8 +69,10 @@
             
 
             <div class="login-bottom text-center basic-text" >
-              
-                <button class="btn-green" >SIGN UP</button>
+                    <div class="alert alert-danger" v-if="error_mail && error_mail.length">
+                    <p> {{ error_mail }}</p>
+                  </div>
+                <button v-on:click="register()" class="btn-green" >SIGN UP</button>
                 <span>ALREADY HAVE AN ACCOUNT?</span>
             </div>
 
@@ -105,11 +105,24 @@ export default {
                 user: "",
                 password: ""
             },
+            register:{
+              email: "",
+              password: ""
+            },
             resp: "",
-            errors: []
+            errors: [],
+            error_mail:"",
+            reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
         }
     },
   methods:{
+      isEmailValid() {
+       if (this.reg.test(this.register.email) == false){
+          this.error_mail = "Debe ingresar un correo correcto";
+       }else{
+         this.error_mail = "";
+       }
+    },
     async login(){
 
         try {
