@@ -30,9 +30,9 @@
                 </div>
             </div>
             <div class="login-bottom text-center basic-text" >
-                  <div class="alert alert-danger" v-if="errors && errors.length">
+                  <div class="alert alert-danger" v-if="errorsl && errorsl.length">
                     <ul>
-                        <li v-for="error in errors" >{{ error }}</li>
+                        <li v-for="error in errorsl" >{{ error }}</li>
                     </ul>
                   </div>
                 <button v-on:click="login()" class="btn-green" >SIGN IN</button>
@@ -46,35 +46,36 @@
           <label for="tab2-2">REGISTER</label>
           <input id="tab2-2" name="tabs-two" type="radio">
           <div>
-            
-            <div class="text-left form-login" >
+            <form v-on:submit.prevent="onSubmitRegister">
+              <div class="text-left form-login" >
 
-                <span>EMAIL</span>
-                <input v-on:keyup="isEmailValid()"
-                 type="text" v-model="register.email" name="email">
+                  <span>EMAIL</span>
+                  <input v-validate="'required|email'" type="text" v-model="register.email" name="email_register">
+                  <span v-show="errors.has('email_register')" class="text-danger">{{ errors.first('email_register') }}</span>
 
-                <span>PASSWORD</span>
-                <input type="password" v-model="register.password" name="password">
+                  <span>PASSWORD</span>
+                  <input 
+                  type="password" v-model="register.password" name="password">
 
-                <span>CONFIRM PASSWORD</span>
-                <input type="password" name="password">
-
-            </div>
-
-            <div class="inline-block basic-text" >
-                <span>OR SING IN WITH:</span>
-                <span>GOOGLE+</span>
-                <span>FACEBOOK</span>
+                  <span>CONFIRM PASSWORD</span>
+                  <input v-validate="{ is: register.password }" 
+                  type="password" v-model="register.confirm_password" name="confirm_password">
+                <span v-show="errors.has('confirm_password')" class="text-danger">{{ errors.first('confirm_password') }}</span>
               </div>
-            
 
-            <div class="login-bottom text-center basic-text" >
-                    <div class="alert alert-danger" v-if="error_mail && error_mail.length">
-                    <p> {{ error_mail }}</p>
-                  </div>
-                <button v-on:click="register()" class="btn-green" >SIGN UP</button>
-                <span>ALREADY HAVE AN ACCOUNT?</span>
-            </div>
+              <div class="inline-block basic-text" >
+                  <span>OR SING IN WITH:</span>
+                  <span>GOOGLE+</span>
+                  <span>FACEBOOK</span>
+                </div>
+              
+
+              <div class="login-bottom text-center basic-text" >
+              
+                  <button v-on:click="register()" class="btn-green" :disabled="errors.any()"  >SIGN UP</button>
+                  <span>ALREADY HAVE AN ACCOUNT?</span>
+              </div>
+            </form>
 
 
 
@@ -107,10 +108,11 @@ export default {
             },
             register:{
               email: "",
-              password: ""
+              password: "",
+              confirm_password:""
             },
             resp: "",
-            errors: [],
+            errorsl: [],
             error_mail:"",
             reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
         }
@@ -123,6 +125,17 @@ export default {
          this.error_mail = "";
        }
     },
+    onSubmitRegister(){
+      this.$validator.validateAll().then((result) => {
+          if (result) {
+            // eslint-disable-next-line
+            alert('Form Submitted!');
+            return;
+          }
+
+          alert('Correct them errors!');
+        });
+      },
     async login(){
 
         try {
