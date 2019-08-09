@@ -62,6 +62,7 @@
                   type="password" v-model="register.confirm_password" name="confirm_password">
                 <span v-show="errors.has('confirm_password')" class="text-danger">{{ errors.first('confirm_password') }}</span>
               </div>
+<<<<<<< HEAD
 
               <div class="inline-block basic-text" >
                   <span>OR SING IN WITH:</span>
@@ -79,11 +80,18 @@
 
 
 
+=======
+            
+            <div class="login-bottom text-center basic-text" >
+              
+                <button class="btn-green" >SIGN UP</button>
+                <span>ALREADY HAVE AN ACCOUNT?</span>
+            </div>
+            
+>>>>>>> dev
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
     
@@ -169,7 +177,7 @@ export default {
     margin-top: 15px;
     margin-bottom: 15px;
 }
-  .inline-block.basic-text span {
+.inline-block.basic-text span {
     margin-right: 15px;
     margin-top: 10px;
     font-weight: bold;
@@ -197,8 +205,7 @@ export default {
     display: inline-block;
 }
 
-
-  .form-login span {
+.form-login span {
     display: block;
     color: #ffffff;
     margin-top: 30px;
