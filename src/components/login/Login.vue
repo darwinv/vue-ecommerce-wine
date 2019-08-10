@@ -62,7 +62,6 @@
                   type="password" v-model="register.confirm_password" name="confirm_password">
                 <span v-show="errors.has('confirm_password')" class="text-danger">{{ errors.first('confirm_password') }}</span>
               </div>
-<<<<<<< HEAD
 
               <div class="inline-block basic-text" >
                   <span>OR SING IN WITH:</span>
@@ -70,25 +69,20 @@
                   <span>FACEBOOK</span>
                 </div>
               
-
+                <div class="alert alert-danger" v-if="errors_register && errors_register.length">
+                    <ul>
+                        <li v-for="error in errors_register" >{{ error }}</li>
+                    </ul>
+                  </div>
               <div class="login-bottom text-center basic-text" >
               
-                  <button v-on:click="register()" class="btn-green" :disabled="errors.any()"  >SIGN UP</button>
+                  <button class="btn-green" :disabled="errors.any()"  >SIGN UP</button>
                   <span>ALREADY HAVE AN ACCOUNT?</span>
               </div>
             </form>
 
 
 
-=======
-            
-            <div class="login-bottom text-center basic-text" >
-              
-                <button class="btn-green" >SIGN UP</button>
-                <span>ALREADY HAVE AN ACCOUNT?</span>
-            </div>
-            
->>>>>>> dev
           </div>
         </div>
       </div>
@@ -101,7 +95,7 @@
 <script>
 import Product from "@/components/product/Product.vue";
 import { repofactory } from "@/common/repo_factory.js";
-const LoginRepository = repofactory.get('login')
+const LoginRepository = repofactory.get('auth');
 
 export default {
   name: "ProductRelate",
@@ -121,28 +115,29 @@ export default {
             },
             resp: "",
             errorsl: [],
-            error_mail:"",
-            reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
+            errors_register:[]
         }
     },
   methods:{
-      isEmailValid() {
-       if (this.reg.test(this.register.email) == false){
-          this.error_mail = "Debe ingresar un correo correcto";
-       }else{
-         this.error_mail = "";
-       }
-    },
-    onSubmitRegister(){
-      this.$validator.validateAll().then((result) => {
-          if (result) {
-            // eslint-disable-next-line
-            alert('Form Submitted!');
-            return;
-          }
+   async onSubmitRegister(){
+          try {
+            const { data } = await this.$validator.validate(); // or validateAll
 
-          alert('Correct them errors!');
-        });
+            try {
+              const { resp } = await LoginRepository.register(this.register);  
+              console.log(resp);
+              this.$router.push({name:'login'});
+
+            } catch (error) {
+                if (error.response){
+                  this.errors_register.push(error.response.data);
+                }
+            }        
+            
+          } catch (err) {
+            // can be a validation failure, a bug in a rule, 
+          // or something wrong in your app logic, so you would do a lot of checks here
+          }
       },
     async login(){
 
@@ -158,7 +153,7 @@ export default {
                 * status code that falls out of the range of 2xx
                 */
                if (error.response.data.non_field_errors){
-                  this.errors.push("Credencales erroneas");
+                  this.errorsl.push(error.response.data.non_field_errors);
                 }
                 console.log(error.response.data);
                 console.log(error.response.status);
