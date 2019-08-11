@@ -42,4 +42,7 @@ export default {
   .container-component > div {
     margin-top: 15px;
     }
+    .container-component {
+    margin-bottom: 20px;
+}
 </style>

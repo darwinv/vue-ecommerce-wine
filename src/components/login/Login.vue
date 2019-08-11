@@ -5,7 +5,7 @@
     :style="{ backgroundImage: 'url('+ require('@/assets/img/login/login_bg.png') +')'}">
         
       <div class="tabs">
-        <div class="tab-2">
+        <div class="tab-base">
           <label for="tab2-1">LOG IN</label>
           <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
           
@@ -35,7 +35,7 @@
           </div>
         </div>
 
-        <div class="tab-2">
+        <div class="tab-base">
           <label for="tab2-2">REGISTER</label>
           <input id="tab2-2" name="tabs-two" type="radio">
           <div>
@@ -105,6 +105,9 @@ export default {
 }
 .tabs{
   width: 60%;
+}
+.tabs .tab-base{
+  width: 50% !important;
 }
 .form-login{
     width: 60%;
