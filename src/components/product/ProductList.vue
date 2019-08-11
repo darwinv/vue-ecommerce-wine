@@ -1,11 +1,9 @@
 <template>
   <div  class="container-component">
-    <div >
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-    </div>
+       <div v-for="item in products" :key="item.id">
+        <Product v-bind:item="item"> </Product>
+       </div> 
+
     <div class="pagination-product">
       <a  class="circle-pagination" href="#">&laquo;</a>
       <a href="#">1</a>
@@ -23,10 +21,44 @@
 
 <script>
 import Product from "@/components/product/Product.vue";
+import { repofactory } from "@/common/repo_factory.js";
+
+const Collection = repofactory.get('collection')
+
 export default {
   name: "ProductList",
   components: {
     Product
+  },
+  data(){
+    return {
+      products: []
+    };
+  },
+   mounted(){
+      //console.log(this.products);
+     this.getCollection();
+  },
+    methods:{
+    async getCollection(){
+        let payload = {
+        }
+        try {
+          const { data } = await Collection.obtain(payload);
+//          console.log(data);
+          this.products = data
+        } catch (error) {
+                if (error.response) {
+                /*
+                * The request was made and the server responded with a
+                * status code that falls out of the range of 2xx
+                */
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response);
+                }
+            }   
+    }
   }
 };
 </script>

@@ -19,16 +19,11 @@
               </div>
               <div class="comment">FREE SHIPPINH + 6 BOTTLES</div>
             </div>
-          
-
-
           <div  class="wishlist">ADD TO WISHLIST
             <img class="ico-start" src="@/assets/img/WISHLISTSTAR.png" >
             </div>
         </b-col>
-
   </b-row>
-
 </template>
 
 <script>
