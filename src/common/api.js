@@ -1,8 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  // baseURL: "http://localhost:8000/",
-  baseURL: "https://18.208.152.142/",
+  baseURL: process.env.VUE_APP_API_BASE_URL,
   // In case that you need a token:
   headers: getHeaders()
 });
