@@ -6,6 +6,7 @@ import ApiLoginTest from "./pages/TestLoginPage.vue";
 
 import ProductDetail from "./pages/ProductDetailPage.vue";
 import Login from "./pages/LoginPage.vue";
+import Profile from "./pages/ProfilePage.vue";
 
 Vue.use(Router);
 
@@ -35,6 +36,11 @@ export default new Router({
       path: "/login/",
       name: "login",
       component: Login
+    },
+    {
+      path: "/profile/",
+      name: "profile",
+      component: Profile
     },
     {
       path: "/about",
