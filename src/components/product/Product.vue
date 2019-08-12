@@ -1,12 +1,12 @@
 <template>
-    <router-link :to="{ name: 'product-detail'}" class="" >
+    <router-link :to="{ name: 'product-detail', params: {id:item.id }}" class="" >
       <div class="product-container" 
         :style="{ backgroundImage: 'url('+ require('@/assets/img/product/product_bg.svg') +')'}">
           <div class="mt-1 title-product">
             <span>GRAMERCY CELLARS</span>
           </div>
           <div>
-            <img class="img-product" v-bind:src="item.images[0].thumbnail">
+            <img class="img-product" v-bind:src="item.images[0].  thumbnail">
           </div>
           <div class="price">
             <span>$ {{item.price}}</span>

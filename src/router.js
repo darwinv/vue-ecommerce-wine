@@ -27,7 +27,7 @@ export default new Router({
       component: ApiLoginTest
     },
     {
-      path: "/product-detail/1/",
+      path: "/product-detail/:id/",
       name: "product-detail",
       component: ProductDetail
     },
