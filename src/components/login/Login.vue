@@ -4,6 +4,8 @@
     <div class="banner-container inner"
     :style="{ backgroundImage: 'url('+ require('@/assets/img/login/login_bg.png') +')'}">
         
+
+
       <div class="tabs">
         <div class="tab-base">
           <label for="tab2-1">LOG IN</label>
@@ -12,14 +14,14 @@
           <div>
             <div class="text-left form-login" >
                 <span>USER OR EMAIL</span>
-                <input type="text" name="user">
+                <input type="text"  v-model="input.username" name="user">
 
                 <span>PASSWORD</span>
-                <input type="password" name="password">
+                <input type="password" v-model="input.password" name="password">
 
                 <div class="text-right remenber">
                   <div>
-                    REMENBER ME 
+                    REMEMBER ME 
                   </div>
                   <label class="container-check">
                     <input type="checkbox">
@@ -28,7 +30,12 @@
                 </div>
             </div>
             <div class="login-bottom text-center basic-text" >
-                <button class="btn-green" >SIGN IN</button>
+                  <div class="alert alert-danger" v-if="errorsl && errorsl.length">
+                    <ul>
+                        <li v-for="error in errorsl" >{{ error }}</li>
+                    </ul>
+                  </div>
+                <button v-on:click="login()" class="btn-green" >SIGN IN</button>
                 <span>FORGOT YOUR PASSWORD?</span>
                 <span>NOT A MEMBER YET?</span>
             </div>
@@ -39,35 +46,43 @@
           <label for="tab2-2">REGISTER</label>
           <input id="tab2-2" name="tabs-two" type="radio">
           <div>
-            
-            <div class="text-left form-login" >
+            <form v-on:submit.prevent="onSubmitRegister">
+              <div class="text-left form-login" >
 
-                <span>USER</span>
-                <input type="text" name="user">
+                  <span>EMAIL</span>
+                  <input v-validate="'required|email'" type="text" v-model="register.email" name="email_register">
+                  <span v-show="errors.has('email_register')" class="text-danger">{{ errors.first('email_register') }}</span>
 
-                <span>EMAIL</span>
-                <input type="text" name="email">
+                  <span>PASSWORD</span>
+                  <input 
+                  type="password" v-model="register.password" name="password">
 
-                <span>PASSWORD</span>
-                <input type="password" name="password">
-
-                <span>CONFIRM PASSWORD</span>
-                <input type="password" name="password">
-
-            </div>
-
-            <div class="inline-block basic-text" >
-                <span>OR SING IN WITH:</span>
-                <span>GOOGLE+</span>
-                <span>FACEBOOK</span>
+                  <span>CONFIRM PASSWORD</span>
+                  <input v-validate="{ is: register.password }" 
+                  type="password" v-model="register.confirm_password" name="confirm_password">
+                <span v-show="errors.has('confirm_password')" class="text-danger">{{ errors.first('confirm_password') }}</span>
               </div>
-            
-            <div class="login-bottom text-center basic-text" >
+
+              <div class="inline-block basic-text" >
+                  <span>OR SING IN WITH:</span>
+                  <span>GOOGLE+</span>
+                  <span>FACEBOOK</span>
+                </div>
               
-                <button class="btn-green" >SIGN UP</button>
-                <span>ALREADY HAVE AN ACCOUNT?</span>
-            </div>
-            
+                <div class="alert alert-danger" v-if="errors_register && errors_register.length">
+                    <ul>
+                        <li v-for="error in errors_register" >{{ error }}</li>
+                    </ul>
+                  </div>
+              <div class="login-bottom text-center basic-text" >
+              
+                  <button class="btn-green" :disabled="errors.any()"  >SIGN UP</button>
+                  <span>ALREADY HAVE AN ACCOUNT?</span>
+              </div>
+            </form>
+
+
+
           </div>
         </div>
       </div>
@@ -79,11 +94,74 @@
 
 <script>
 import Product from "@/components/product/Product.vue";
+import { repofactory } from "@/common/repo_factory.js";
+const LoginRepository = repofactory.get('auth');
+
 export default {
   name: "ProductRelate",
   components: {
     Product
-  }
+  },
+    data () {
+        return {
+            input: {
+                user: "",
+                password: ""
+            },
+            register:{
+              email: "",
+              password: "",
+              confirm_password:""
+            },
+            resp: "",
+            errorsl: [],
+            errors_register:[]
+        }
+    },
+  methods:{
+   async onSubmitRegister(){
+          try {
+            const { data } = await this.$validator.validate(); // or validateAll
+
+            try {
+              const { resp } = await LoginRepository.register(this.register);  
+              console.log(resp);
+              this.$router.push({name:'login'});
+
+            } catch (error) {
+                if (error.response){
+                  this.errors_register.push(error.response.data);
+                }
+            }        
+            
+          } catch (err) {
+            // can be a validation failure, a bug in a rule, 
+          // or something wrong in your app logic, so you would do a lot of checks here
+          }
+      },
+    async login(){
+
+        try {
+          const { data } = await LoginRepository.login(this.input);
+          localStorage.setItem('token', data.token);
+          console.log(data);
+          this.$router.push({name:'home'}) 
+        } catch (error) {
+                if (error.response) {
+                /*
+                * The request was made and the server responded with a
+                * status code that falls out of the range of 2xx
+                */
+               if (error.response.data.non_field_errors){
+                  this.errorsl.push(error.response.data.non_field_errors);
+                }
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response);
+                }
+            }   
+    }
+  }    
 };
 </script>
 
