@@ -6,7 +6,7 @@
             "src": "package.json",
             "use": "@now/static-build",
             "env": {
-                "BASE_URL": "@secret-base-url"
+                "VUE_APP_BASE_URL": "@secret-base-url"
             }
         }
     ]
