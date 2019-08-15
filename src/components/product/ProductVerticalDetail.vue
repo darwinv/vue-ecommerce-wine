@@ -1,5 +1,5 @@
 <template>
-  <div class="container-component" 
+  <div class="container-component w-100" 
   :style="{ backgroundImage: 'url('+ require('@/assets/img/product/welovebg.png') +')'}">
     <div class="container-welove">
       <div class="tab">
@@ -26,11 +26,41 @@
       </div>
 
       <div id="WHAT" class="tabcontent" >
+        
         <p>Columbia Valley A should be mentioned in the same both while maintaining an outlier’s price point. This is a great example of a winery focused on quality over quantity – the attention to detail pays off in every sniff, every sip of this sensational Washington state Cabernet Sauvignon. Cabernet drinkers: Get on this!.</p>
       </div>
       <div id="VARIETAL" class="tabcontent"
         style="display:none" >
-        <p>Columbia Valley B should be mentioned in the same both while maintaining an outlier’s price point. This is a great example of a winery focused on quality over quantity – the attention to detail pays off in every sniff, every sip of this sensational Washington state Cabernet Sauvignon. Cabernet drinkers: Get on this!</p> 
+          <div class="row pt-5">
+            <b-col lg="9" sm="12" class="text-left" >
+            <div class="mt-3" >
+              <span class="subtitle" >Cabernet Sauvignon</span>
+              <div class="range-cont" >
+                <input type="range" class="custom-range" disabled="disabled" value="95" > 
+                <span class="range-data" > 95%</span> 
+              </div>
+              
+            </div>
+            <div class="mt-3" >
+              <span class="subtitle" >Cabernet Franc</span>
+              <div class="range-cont" >
+                <input type="range" class="custom-range" disabled="disabled" value="4" > 
+                <span class="range-data" > 4%</span>
+              </div> 
+            </div>
+            <div class="mt-3" >
+              <span class="subtitle" >Petit Verdot</span>
+              <div class="range-cont" >
+                <input type="range" class="custom-range" disabled="disabled" value="1" > 
+                <span class="range-data" > 1%</span>
+              </div> 
+            </div>
+            </b-col>
+            <b-col lg="3" sm="12" >
+              <span>RECOMMENDED GLASS</span>
+              <img src="@/assets/img/product/glassofwine.png" >
+            </b-col>
+          </div>
       </div>
       <div id="FLAVOR" class="tabcontent"
         style="display:none" >
@@ -85,6 +115,59 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
   @import "@/styles/global.scss";
+
+
+#VARIETAL .subtitle{
+    width: 160px;
+    float: left;
+}
+
+#VARIETAL .range-data{
+  position: absolute;
+  right: 5px;
+}
+.range-cont input{
+  width: 90%
+}
+.range-cont span{
+  width: 10%;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 95%;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: white;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 0px solid #000000;
+  height: 24px;
+  width: 24px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /* Style the tab */
 .tab {
   float: left;
