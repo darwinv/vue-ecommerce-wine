@@ -6,7 +6,7 @@
             <span>GRAMERCY CELLARS</span>
           </div>
           <div>
-            <img class="img-product" v-bind:src="item.images[0].  thumbnail">
+            <img class="img-product" v-bind:src="item.images[0].thumbnail">
           </div>
           <div class="price">
             <span>$ {{item.price}}</span>
