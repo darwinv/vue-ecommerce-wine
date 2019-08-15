@@ -27,42 +27,20 @@
 </template>
 
 <script>
-import { repofactory } from "@/common/repo_factory.js";
 
-const Collection = repofactory.get('collection');
 
 export default {
   name: "ProductDetailHeader",
     mounted(){
-      // console.log('hello');
-      //console.log(this.$route.params.id)
-      
-      this.getProduct(this.$route.params.id);
   },
     data(){
     return {
-      product: {}
      };
     },
+    props: ["product"],
     methods:{
-    async getProduct(id){
-        try {
-          const { data } = await Collection.product(id);
-          this.product = data;
-          
-        } catch (error) {
-                if (error.response) {
-                /*
-                * The request was made and the server responded with a
-                * status code that falls out of the range of 2xx
-                */
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response);
-                }
-            }   
-    }
-  }
+      
+      }
 };
 </script>
 
