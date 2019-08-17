@@ -27,7 +27,7 @@
 
       <div id="WHAT" class="tabcontent" >
         
-        <p>Columbia Valley A should be mentioned in the same both while maintaining an outlier’s price point. This is a great example of a winery focused on quality over quantity – the attention to detail pays off in every sniff, every sip of this sensational Washington state Cabernet Sauvignon. Cabernet drinkers: Get on this!.</p>
+        <p>Columbia Valley should be mentioned in the same both while maintaining an outlier’s price point. This is a great example of a winery focused on quality over quantity – the attention to detail pays off in every sniff, every sip of this sensational Washington state Cabernet Sauvignon. Cabernet drinkers: Get on this!</p>
       </div>
       <div id="VARIETAL" class="tabcontent"
         style="display:none" >
@@ -64,15 +64,67 @@
       </div>
       <div id="FLAVOR" class="tabcontent"
         style="display:none" >
-        <p>Columbia Valley C should be mentioned in the same both while maintaining an outlier’s price point. This is a great example of a winery focused on quality over quantity – the attention to detail pays off in every sniff, every sip of this sensational Washington state Cabernet Sauvignon. Cabernet drinkers: Get on this!.</p>
+
+        <div class="mb-5" >
+          <span>FRUITINESS</span>
+          <span class="white circle ml-2"></span>
+          <span class="white circle"></span>
+          <span class="white circle"></span>
+          <span class="black circle"></span>
+          <span class="black circle mr-5"></span>
+          
+          <span>DRY</span>
+          <span class="white circle ml-2"></span>
+          <span class="black circle"></span>
+          <span class="black circle"></span>
+          <span class="black circle"></span>
+          <span class="black circle"></span>
+          
+        </div>
+
+        <p>The fruit component is red, purple, and black all at once, with everything from blackberry to red currant to cassis intertwined with scents of graphite, tobacco, espresso grounds, chocolate, and wet gravel. The velvety tannins have a telltale New World feel, and while the ripeness and weight are considerable it doesn’t feel heavy. The finish is fresh and darkly savory, with coffee and earth tones lingering long after you’ve finished a sip. In the spirit of the great West Coast Cabernets, this will wow you after 30-60 minutes in a decanter.</p>
+
       </div>
       <div id="PRODUCER" class="tabcontent"
         style="display:none" >
-        <p>Columbia Valley D should be mentioned in the same both while maintaining an outlier’s price point. This is a great example of a winery focused on quality over quantity – the attention to detail pays off in every sniff, every sip of this sensational Washington state Cabernet Sauvignon. Cabernet drinkers: Get on this!</p> 
+        <p>Gramercy’s mission is simple: to make wines that complement food, provide great pleasure, and stand out as uniquely made in Washington.</p><p> One of the most exciting additions to Washington’s ever-expanding wine scene is Gramercy Cellars, founded by Master Sommelier Greg Harrington and his wife, Pam, in 2005. Greg’s wines are impeccably made, but perhaps more importantly, impeccably sourced—his lineup reads like a “who’s who” of Eastern Washington viticulture, and as we dig deeper into the stories of these vineyards we gain a greater appreciation of Washington State’s importance as a terroir.</p> 
       </div>
       <div id="OTHER" class="tabcontent"
         style="display:none" >
-        <p>Columbia Valley E should be mentioned in the same both while maintaining an outlier’s price point. This is a great example of a winery focused on quality over quantity – the attention to detail pays off in every sniff, every sip of this sensational Washington state Cabernet Sauvignon. Cabernet drinkers: Get on this!.</p>
+
+
+        <div class="mb-5" >
+          <div class="inline-block mr-3" >
+            <div class="inline-block mr-3" >
+              <img src="@/assets/img/product/medal.png" >
+            </div>
+            <div class="inline-block" >
+              <div  >
+                <span class="mb-3" >93pts</span> 
+              </div>
+              <div >
+                <span>Robert Parker</span> 
+              </div>
+            </div>
+          </div>
+          <div class="inline-block mr-3" >
+            <div class="inline-block mr-3" >
+              <img src="@/assets/img/product/medal.png" >
+            </div>
+            <div class="inline-block" >
+              <div  >
+                <span class="mb-3" >93pts</span> 
+              </div>
+              <div >
+                <span>Robert Parker</span> 
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>Sourced from Phinny Hill, Sagemoor Vineyard, Octave Estate Vineyards.</p>
+        <p>14.3% alc – 1,421 cases made.</p>
+        <p>Drink now through 2037.</p>
       </div>
     </div>
   </div>
@@ -154,17 +206,20 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
+span.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0px 5px -2px 0px;
+    border: 1px solid #ffffff6e;
+}
+.white{
+  background-color: white;
+}
+.black{
+  background-color: black;
+}
 
 
 
@@ -174,7 +229,7 @@ input[type=range]::-webkit-slider-thumb {
   border: 1px solid #ccc;
   background-color: #f1f1f100;
   border-color: #ff000000;
-  width: 30%;
+  width: 25%;
   height: 300px;
 }
 
@@ -215,6 +270,7 @@ input[type=range]::-webkit-slider-thumb {
     width: 70%;
     border-left: none;
     height: 460px;
+    text-align: left;
 }
 
 .container-welove{
