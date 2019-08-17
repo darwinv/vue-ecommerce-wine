@@ -58,6 +58,7 @@ export default {
       sortLower: null,
     };
   },
+  props: ["product"],
   methods: {
     chageTab(evt, name) {
       var i, tabcontent, tablinks;

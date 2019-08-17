@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="{ name: 'product-detail'}" class="" >
+    <router-link :to="{ name: 'product-detail', params: {id:item.id }}" class="" >
       <div class="product-container" 
         :style="{ backgroundImage: 'url('+ require('@/assets/img/product/product_bg.svg') +')'}">
           <div class="mt-1 title-product">

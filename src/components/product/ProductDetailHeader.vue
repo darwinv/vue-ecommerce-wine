@@ -6,13 +6,13 @@
           <h2  >GRAMERCY CELLARS</h2>
         </b-col>
          <b-col sm="2" class="bottle-img" >
-          <img class="img-product" src="@/assets/img/product/bottle.png">
+          <img class="img-product" v-bind:src="product.images[0].original">
         </b-col>
          <b-col sm="5" class="pruduct-info" >
             <div class="bg-white-detail">
-              <div class="bold" >Cabernet Sauvignon 2014</div>
+              <div class="bold" >{{ product.title }}</div>
               <div>Columbia Valley, WA</div>
-              <div class="price" >$50.00</div>
+              <div class="price">${{ product.price.excl_tax }}</div>
               <div>
                 <span class="product-quantity" >1</span>
                 <button class="btn-gray">ADD TO CART</button>
@@ -27,8 +27,20 @@
 </template>
 
 <script>
+
+
 export default {
-  name: "ProductDetailHeader"
+  name: "ProductDetailHeader",
+    mounted(){
+  },
+    data(){
+    return {
+     };
+    },
+    props: ["product"],
+    methods:{
+      
+      }
 };
 </script>
 
