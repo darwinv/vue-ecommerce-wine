@@ -52,15 +52,16 @@
             <div class="color-gray3">
               PRICE:
               <span class="border-gray" >
-                <button class="btn-filter-price" v-on:click="toggleFilterPrice(1)"
+              <b-button-group>
+                <b-button class="btn-filter-price" v-on:click="toggleFilterPrice(1)"
                   v-bind:class="{ 'active': sortLower == 1 }">
                     HIGH
-                </button>-
-                <button class="btn-filter-price" v-on:click="toggleFilterPrice(2)"
+                </b-button>
+               <b-button class="btn-filter-price" v-on:click="toggleFilterPrice(2)"
                   v-bind:class="{ 'active': sortLower == 2 }">
                     LOW
-                </button>
-                  
+                </b-button>
+              </b-button-group>
               </span>
             </div>
             <div class="mt-4">
