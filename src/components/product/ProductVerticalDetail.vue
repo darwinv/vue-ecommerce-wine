@@ -27,6 +27,7 @@
 
       <div id="WHAT" class="tabcontent" >
         <p>Columbia Valley A should be mentioned in the same both while maintaining an outlier’s price point. This is a great example of a winery focused on quality over quantity – the attention to detail pays off in every sniff, every sip of this sensational Washington state Cabernet Sauvignon. Cabernet drinkers: Get on this!.</p>
+        <!-- <p>{{}} </p> -->
       </div>
       <div id="VARIETAL" class="tabcontent"
         style="display:none" >
@@ -51,14 +52,24 @@
 <script>
 export default {
   name: "ProductVerticalDetail",
+  props: ["product"],
   data: function() {
     return {
       isFilterDisplay: false,
       textColor: 'ALL',
       sortLower: null,
+      products: this.product,
+      what_we_love: ''
     };
   },
-  props: ["product"],
+  mounted(){   
+       console.log(this.products.attributes);
+      let what =  this.products.attributes.filter(function(attr) {
+	      return attr.code == "tastingprofile";
+      });
+      this.what_we_love = what.code;
+      // console.log(what_we_love.code);
+  },  
   methods: {
     chageTab(evt, name) {
       var i, tabcontent, tablinks;
@@ -74,7 +85,8 @@ export default {
       document.getElementById(name).style.display = "block";
       evt.currentTarget.className += " active";
     }
-  }
+  },
+
 
 };
 

@@ -27,7 +27,7 @@
               </button>
             </span>
             
-            <span v-bind:class="{ 'opacity-0': !isFilterDisplay }">
+            <!-- <span v-bind:class="{ 'opacity-0': !isFilterDisplay }">
               <button v-on:click="FilterChange('ALL RED')" class="btn-circle bg-pink ml-4">
                   &nbsp;
               </button>
@@ -37,7 +37,16 @@
               <button v-on:click="FilterChange('ALL WHITE')" class="btn-circle bg-white ml-4">
                   &nbsp;
               </button>
-            </span>
+            </span> -->
+  <b-form-group label="Using options array:">
+      <b-form-checkbox-group
+        id="checkbox-group-1"
+        v-model="selected"
+        :options="options"
+        name="flavour-1"
+      ></b-form-checkbox-group>
+    </b-form-group>
+
         </div>
         <div class="float-right size-small">
             <div class="color-gray3">
@@ -161,3 +170,18 @@ export default {
 
 
 </style>
+ <script>
+  export default {
+    data() {
+      return {
+        selected: [], // Must be an array reference!
+        options: [
+          { text: 'Red', value: 'red' },
+          { text: 'White', value: 'white' },
+          { text: 'Pink', value: 'pink' },
+          { text: 'Bubbles', value: 'bubbles' }
+        ]
+      }
+    }
+  }
+</script>
