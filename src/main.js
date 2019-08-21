@@ -15,6 +15,8 @@ Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 Vue.use(VeeValidate);
 
+export const bus = new Vue();
+
 new Vue({
   router,
   store,

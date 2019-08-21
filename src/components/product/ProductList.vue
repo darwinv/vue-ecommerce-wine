@@ -22,7 +22,8 @@
 <script>
 import Product from "@/components/product/Product.vue";
 import { repofactory } from "@/common/repo_factory.js";
-
+// import { EventBus } from '@/common/event_bus.js';
+import { bus } from '@/main.js'; 
 const Collection = repofactory.get('collection')
 
 export default {
@@ -38,6 +39,11 @@ export default {
    mounted(){
       //console.log(this.products);
      this.getCollection();
+  },
+  created(){
+        bus.$on('change', (string_var) => {
+              console.log(`Oh, that's nice. It's gotten ${string_var}! :)`)
+          });
   },
     methods:{
     async getCollection(){

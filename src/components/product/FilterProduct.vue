@@ -26,7 +26,7 @@
                   <span v-else>+</span>
               </button>
             </span>
-            
+            <button v-on:click="ecento()"> test  </button>
             <!-- <span v-bind:class="{ 'opacity-0': !isFilterDisplay }">
               <button v-on:click="FilterChange('ALL RED')" class="btn-circle bg-pink ml-4">
                   &nbsp;
@@ -73,11 +73,11 @@
 
 </template>
 
-
 <script>
+// import { bus } from '@/main.js'; 
 export default {
   name: "FilterProduct",
-  data: function() {
+  data() {
     return {
       isFilterDisplay: false,
       textColor: 'ALL',
@@ -87,6 +87,7 @@ export default {
   methods: {
     toggleFilter() {
       this.isFilterDisplay = !this.isFilterDisplay;
+      console.log('hey');
     },
     FilterChange(textColor) {
       this.textColor = textColor;
@@ -94,6 +95,12 @@ export default {
     },
     toggleFilterPrice(value) {
       this.sortLower = value;
+    },
+
+    ecento() {
+      console.log('hey222');
+      // Send the event on a channel (i-got-clicked) with a payload (the click count.)
+      // bus.$emit('change', "hello");
     }
   }
 };
