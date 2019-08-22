@@ -28,18 +28,16 @@
             </span>
 
             <span v-bind:class="{ 'opacity-0': !isFilterDisplay }">
-              <button v-on:click="FilterChange('red')" class="btn-circle bg-pink ml-4">
+              <button v-on:click="FilterChange('pink')" class="btn-circle bg-pink ml-4">
                   &nbsp;
               </button>
-              <button v-on:click="FilterChange('pink')" class="btn-circle bg-yellow ml-4">
+              <button v-on:click="FilterChange('red')" class="btn-circle bg-red ml-4">
                   &nbsp;
               </button>
               <button v-on:click="FilterChange('white')" class="btn-circle bg-white ml-4">
                   &nbsp;
               </button>
-              <button v-on:click="FilterChange('bubbles')" class="btn-circle bg-white ml-4">
-                  &nbsp;
-              </button>              
+        
             </span>
         </div>
         <div class="float-right size-small">
