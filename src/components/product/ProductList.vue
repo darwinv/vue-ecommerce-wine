@@ -32,8 +32,6 @@ export default {
         }
      this.getCollection(payload);
      bus.$on('change', (data)=>{
-       data.price_range = data.price_range == 2 ? "LOW" : "HIGH";
-      //  console.log(data);
        this.getCollection(data);
      })
   },

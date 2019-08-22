@@ -26,19 +26,20 @@
                   <span v-else>+</span>
               </button>
             </span>
-            
-            <button v-on:click="ejemplo()"> Test </button>
 
             <span v-bind:class="{ 'opacity-0': !isFilterDisplay }">
-              <button v-on:click="FilterChange('ALL RED')" class="btn-circle bg-pink ml-4">
+              <button v-on:click="FilterChange('red')" class="btn-circle bg-pink ml-4">
                   &nbsp;
               </button>
-              <button v-on:click="FilterChange('ALL YELLOW')" class="btn-circle bg-yellow ml-4">
+              <button v-on:click="FilterChange('pink')" class="btn-circle bg-yellow ml-4">
                   &nbsp;
               </button>
-              <button v-on:click="FilterChange('ALL WHITE')" class="btn-circle bg-white ml-4">
+              <button v-on:click="FilterChange('white')" class="btn-circle bg-white ml-4">
                   &nbsp;
               </button>
+              <button v-on:click="FilterChange('bubbles')" class="btn-circle bg-white ml-4">
+                  &nbsp;
+              </button>              
             </span>
         </div>
         <div class="float-right size-small">
@@ -80,22 +81,22 @@ export default {
   },
   methods: {
     toggleFilter() {
-      console.log("hello");
       this.isFilterDisplay = !this.isFilterDisplay;
     },
     FilterChange(textColor) {
       this.textColor = textColor;
+      let arr_color = [];
+      arr_color.push(this.textColor);
+      let new_data = {"color":arr_color};
+      bus.$emit('change', new_data);
       this.toggleFilter();
     },
     toggleFilterPrice(value) {
       this.sortLower = value;
-      // console.log("hee");
-      let new_data = {"price_range":this.sortLower}
+      let price_range = this.sortLower == 2 ? "LOW" : "HIGH";
+      let new_data = {"price_range":price_range}
       bus.$emit('change', new_data);
     }
-    // ejemplo(){
-    //   bus.$emit('change', "helloworld");
-    // }
   }
 };
 </script>
@@ -145,6 +146,10 @@ export default {
     background-color: #EFBC3A;
   }
   .bg-white{
+    background-color: #FFFFFF;
+  }
+
+  .bg-bubbles{
     background-color: #FFFFFF;
   }
 
