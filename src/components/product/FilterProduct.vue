@@ -27,6 +27,8 @@
               </button>
             </span>
             
+            <button v-on:click="ejemplo()"> Test </button>
+
             <span v-bind:class="{ 'opacity-0': !isFilterDisplay }">
               <button v-on:click="FilterChange('ALL RED')" class="btn-circle bg-pink ml-4">
                   &nbsp;
@@ -65,6 +67,8 @@
 
 
 <script>
+import { bus } from "@/main";
+
 export default {
   name: "FilterProduct",
   data: function() {
@@ -76,6 +80,7 @@ export default {
   },
   methods: {
     toggleFilter() {
+      console.log("hello");
       this.isFilterDisplay = !this.isFilterDisplay;
     },
     FilterChange(textColor) {
@@ -84,7 +89,13 @@ export default {
     },
     toggleFilterPrice(value) {
       this.sortLower = value;
+      // console.log("hee");
+      let new_data = {"price_range":this.sortLower}
+      bus.$emit('change', new_data);
     }
+    // ejemplo(){
+    //   bus.$emit('change', "helloworld");
+    // }
   }
 };
 </script>
