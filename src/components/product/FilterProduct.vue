@@ -20,7 +20,7 @@
       </div>
       <div class="filter-container" >
         <div class="float-left">
-            <span>
+            <span class="upper">
               {{textColor}}<button v-on:click="toggleFilter()" class="btn-circle bg-red ml-4">
                   <span v-if="isFilterDisplay">-</span>
                   <span v-else>+</span>
@@ -37,7 +37,7 @@
               <button v-on:click="FilterChange('white')" class="btn-circle bg-white ml-4">
                   &nbsp;
               </button>
-        
+
             </span>
         </div>
         <div class="float-right size-small">
@@ -54,9 +54,6 @@
                 </button>
                   
               </span>
-            </div>
-            <div class="mt-4">
-              <span>4 - 68 Items</span>
             </div>
         </div>
       </div>
@@ -84,8 +81,12 @@ export default {
     FilterChange(textColor) {
       this.textColor = textColor;
       let arr_color = [];
+
       arr_color.push(this.textColor);
       let new_data = {"color":arr_color};
+      if (this.textColor == 'all'){
+          new_data = {} 
+      }
       bus.$emit('change', new_data);
       this.toggleFilter();
     },
@@ -122,7 +123,9 @@ export default {
     border-radius: 5px;
   }
 
-  
+  .upper{
+    text-transform: uppercase;
+  }
   .menu-filter > div{
         padding: 15px;
   }
@@ -147,8 +150,8 @@ export default {
     background-color: #FFFFFF;
   }
 
-  .bg-bubbles{
-    background-color: #FFFFFF;
+  .bg-grey{
+    background-color: #98a5a5f0;
   }
 
   
