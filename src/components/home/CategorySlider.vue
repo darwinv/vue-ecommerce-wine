@@ -29,22 +29,22 @@ export default {
         {
           name: "PAIRING",
           src:
-            "https://cutpcdnwimages.azureedge.net/-/media/images/retail/wine/monthly-heroes/8938-great-wines-under-20_642x340.jpg"
+            require("@/assets/img/slider/glasses.jpg")
         },
         {
           name: "VARIETAL",
           src:
-            "https://cutpcdnwimages.azureedge.net/-/media/images/retail/wine/monthly-heroes/8938-great-wines-under-20_642x340.jpg"
+            require("@/assets/img/slider/glasses.jpg")
         },
         {
           name: "PRODUCERS",
           src:
-            "https://cutpcdnwimages.azureedge.net/-/media/images/retail/wine/monthly-heroes/8938-great-wines-under-20_642x340.jpg"
+            require("@/assets/img/slider/glasses.jpg")
         },
         {
           name: "PRODUCERS",
           src:
-            "https://cutpcdnwimages.azureedge.net/-/media/images/retail/wine/monthly-heroes/8938-great-wines-under-20_642x340.jpg"
+            require("@/assets/img/slider/glasses.jpg")
         }
       ],
       innerWidth: 0,
