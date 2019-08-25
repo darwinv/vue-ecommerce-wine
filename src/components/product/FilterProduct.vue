@@ -70,7 +70,7 @@ export default {
   data: function() {
     return {
       isFilterDisplay: false,
-      textColor: 'ALL',
+      textColor: 'all',
       sortLower: null,
     };
   },
@@ -83,17 +83,24 @@ export default {
       let arr_color = [];
 
       arr_color.push(this.textColor);
-      let new_data = {"color":arr_color};
+      let price_range = this.sortLower == 2 ? "LOW" : "HIGH";
+      let new_data = {"color":arr_color, "price_range":price_range};
       if (this.textColor == 'all'){
-          new_data = {} 
+          new_data = {"price_range":price_range} 
       }
       bus.$emit('change', new_data);
       this.toggleFilter();
     },
     toggleFilterPrice(value) {
+ 
+      let arr_color = [];
+      arr_color.push(this.textColor);
       this.sortLower = value;
       let price_range = this.sortLower == 2 ? "LOW" : "HIGH";
-      let new_data = {"price_range":price_range}
+      let new_data = {"price_range":price_range, "color":arr_color}
+      if (this.textColor == "all"){
+         new_data = {"price_range":price_range}
+      }
       bus.$emit('change', new_data);
     }
   }
