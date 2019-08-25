@@ -181,7 +181,6 @@ span.carousel-text.container {
 
 .carousel-wrap {
     width: 100% !important;
-    border: 1px solid rgba(91, 140, 255, 0.3);
     background-color: black;
     margin: 80px 0px 60px 0px;
 }
