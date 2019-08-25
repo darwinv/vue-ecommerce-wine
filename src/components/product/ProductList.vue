@@ -1,19 +1,9 @@
 <template>
-  <div  class="container-component">
-       <div v-for="item in products" :key="item.id">
-        <Product v-bind:item="item"> </Product>
-       </div> 
+  <div  class="container-component row m-0">
+       <b-col sm="12" md="6" lg="3" v-for="item in products" :key="item.id">
+          <Product v-bind:item="item"> </Product>
+        </b-col>
 
-    <div class="pagination-product">
-      <a  class="circle-pagination" href="#">&laquo;</a>
-      <a href="#">1</a>
-      <a href="#">2</a>
-      <a href="#">3</a>
-      <a href="#">4</a>
-      <a href="#">5</a>
-      <a href="#">6</a>
-      <a class="circle-pagination" href="#">&raquo;</a>
-    </div>
   </div>
 
 </template>
@@ -22,8 +12,8 @@
 <script>
 import Product from "@/components/product/Product.vue";
 import { repofactory } from "@/common/repo_factory.js";
-// import { EventBus } from '@/common/event_bus.js';
-import { bus } from '@/main.js'; 
+import { bus } from "@/main";
+
 const Collection = repofactory.get('collection')
 
 export default {
@@ -38,7 +28,12 @@ export default {
   },
    mounted(){
       //console.log(this.products);
-     this.getCollection();
+      let payload = {
+        }
+     this.getCollection(payload);
+     bus.$on('change', (data)=>{
+       this.getCollection(data);
+     })
   },
   created(){
         bus.$on('change', (string_var) => {
@@ -46,11 +41,10 @@ export default {
           });
   },
     methods:{
-    async getCollection(){
-        let payload = {
-        }
+    async getCollection(payload){
         try {
           const { data } = await Collection.obtain(payload);
+          console.log(payload)
 //          console.log(data);
           this.products = data
         } catch (error) {

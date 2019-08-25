@@ -20,33 +20,25 @@
       </div>
       <div class="filter-container" >
         <div class="float-left">
-            <span>
+            <span class="upper">
               {{textColor}}<button v-on:click="toggleFilter()" class="btn-circle bg-red ml-4">
                   <span v-if="isFilterDisplay">-</span>
                   <span v-else>+</span>
               </button>
             </span>
-            <button v-on:click="ecento()"> test  </button>
-            <!-- <span v-bind:class="{ 'opacity-0': !isFilterDisplay }">
-              <button v-on:click="FilterChange('ALL RED')" class="btn-circle bg-pink ml-4">
-                  &nbsp;
-              </button>
-              <button v-on:click="FilterChange('ALL YELLOW')" class="btn-circle bg-yellow ml-4">
-                  &nbsp;
-              </button>
-              <button v-on:click="FilterChange('ALL WHITE')" class="btn-circle bg-white ml-4">
-                  &nbsp;
-              </button>
-            </span> -->
-  <b-form-group label="Using options array:">
-      <b-form-checkbox-group
-        id="checkbox-group-1"
-        v-model="selected"
-        :options="options"
-        name="flavour-1"
-      ></b-form-checkbox-group>
-    </b-form-group>
 
+            <span v-bind:class="{ 'opacity-0': !isFilterDisplay }">
+              <button v-on:click="FilterChange('pink')" class="btn-circle bg-pink ml-4">
+                  &nbsp;
+              </button>
+              <button v-on:click="FilterChange('red')" class="btn-circle bg-red ml-4">
+                  &nbsp;
+              </button>
+              <button v-on:click="FilterChange('white')" class="btn-circle bg-white ml-4">
+                  &nbsp;
+              </button>
+
+            </span>
         </div>
         <div class="float-right size-small">
             <div class="color-gray3">
@@ -64,9 +56,6 @@
               </b-button-group>
               </span>
             </div>
-            <div class="mt-4">
-              <span>4 - 68 Items</span>
-            </div>
         </div>
       </div>
   </div>
@@ -74,13 +63,14 @@
 </template>
 
 <script>
-// import { bus } from '@/main.js'; 
+import { bus } from "@/main";
+
 export default {
   name: "FilterProduct",
   data() {
     return {
       isFilterDisplay: false,
-      textColor: 'ALL',
+      textColor: 'all',
       sortLower: null,
     };
   },
@@ -91,16 +81,28 @@ export default {
     },
     FilterChange(textColor) {
       this.textColor = textColor;
+      let arr_color = [];
+
+      arr_color.push(this.textColor);
+      let price_range = this.sortLower == 2 ? "LOW" : "HIGH";
+      let new_data = {"color":arr_color, "price_range":price_range};
+      if (this.textColor == 'all'){
+          new_data = {"price_range":price_range} 
+      }
+      bus.$emit('change', new_data);
       this.toggleFilter();
     },
     toggleFilterPrice(value) {
+ 
+      let arr_color = [];
+      arr_color.push(this.textColor);
       this.sortLower = value;
-    },
-
-    ecento() {
-      console.log('hey222');
-      // Send the event on a channel (i-got-clicked) with a payload (the click count.)
-      // bus.$emit('change', "hello");
+      let price_range = this.sortLower == 2 ? "LOW" : "HIGH";
+      let new_data = {"price_range":price_range, "color":arr_color}
+      if (this.textColor == "all"){
+         new_data = {"price_range":price_range}
+      }
+      bus.$emit('change', new_data);
     }
   }
 };
@@ -129,7 +131,9 @@ export default {
     border-radius: 5px;
   }
 
-  
+  .upper{
+    text-transform: uppercase;
+  }
   .menu-filter > div{
         padding: 15px;
   }
@@ -152,6 +156,10 @@ export default {
   }
   .bg-white{
     background-color: #FFFFFF;
+  }
+
+  .bg-grey{
+    background-color: #98a5a5f0;
   }
 
   
@@ -178,18 +186,3 @@ export default {
 
 
 </style>
- <script>
-  export default {
-    data() {
-      return {
-        selected: [], // Must be an array reference!
-        options: [
-          { text: 'Red', value: 'red' },
-          { text: 'White', value: 'white' },
-          { text: 'Pink', value: 'pink' },
-          { text: 'Bubbles', value: 'bubbles' }
-        ]
-      }
-    }
-  }
-</script>

@@ -1,6 +1,9 @@
 {
     "version": 2,
     "name": "pollux",
+    "env": {
+        "VUE_APP_API_BASE_URL": "@secret-base-url"
+    },
     "builds": [
         {
             "src": "package.json",
