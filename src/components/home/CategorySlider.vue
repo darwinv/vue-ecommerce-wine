@@ -1,150 +1,211 @@
 <template>
-<div> 
-  <h4>SELECT A CATEGORY</h4> 
 
-  <div id="slider_id" class="slides" ref="sli">
-    <div class="slides-inner" 
-    v-on:mouseover="mouseover"
-    v-on:mouseleave="mouseleave">
-      <div class="slide-div" v-for="slide in slides" :key="slide">
-        <Slide v-bind:slide="slide"> </Slide>
+    <div class="carousel-wrap relative">
+      <div class="title-category" >
+        SELECT A CATEGORY
       </div>
-    </div>
+    
+    <vuescroll-carousel :type="type" >
+      <div class="child" >
+        <span class="carousel-text container"
+        :style="{
+          backgroundImage: 'url(' + require('@/assets/img/slider/img1.jpg') + ')'
+        }">
+          <div class="content" >
+            PAIRING
+          </div>
+        </span>
+      </div>
+      <div class="child" >
+        <span class="carousel-text container"
+        :style="{
+          backgroundImage: 'url(' + require('@/assets/img/slider/img2.jpg') + ')'
+        }">
+          <div class="content" >
+            VARIETAL
+          </div>
+        </span>
+      </div>
+      <div class="child" >
+        <span class="carousel-text container"
+        :style="{
+          backgroundImage: 'url(' + require('@/assets/img/slider/img3.jpg') + ')'
+        }">
+          <div class="content" >
+            PRODUCERS
+          </div>
+        </span>
+      </div>
+      <div class="child" >
+        <span class="carousel-text container"
+        :style="{
+          backgroundImage: 'url(' + require('@/assets/img/slider/img4.jpg') + ')'
+        }">
+          <div class="content" >
+            REGION
+          </div>
+        </span>
+      </div>
+      <div class="child" >
+        <span class="carousel-text container"
+        :style="{
+          backgroundImage: 'url(' + require('@/assets/img/slider/img5.jpg') + ')'
+        }">
+          <div class="content" >
+            PRODUCERS
+          </div>
+        </span>
+      </div>
+      <div class="child" >
+        <span class="carousel-text container"
+        :style="{
+          backgroundImage: 'url(' + require('@/assets/img/slider/img6.jpg') + ')'
+        }">
+          <div class="content" >
+            VARIETAL
+          </div>
+        </span>
+      </div>
+      <div class="child" >
+        <span class="carousel-text container"
+        :style="{
+          backgroundImage: 'url(' + require('@/assets/img/slider/img7.jpg') + ')'
+        }">
+          <div class="content" >
+            PAIRING
+          </div>
+        </span>
+      </div>
+      <div class="child" >
+        <span class="carousel-text container"
+        :style="{
+          backgroundImage: 'url(' + require('@/assets/img/slider/img8.jpg') + ')'
+        }">
+          <div class="content" >
+            REGION
+          </div>
+        </span>
+      </div>
+      <div class="child" >
+        <span class="carousel-text container"
+        :style="{
+          backgroundImage: 'url(' + require('@/assets/img/slider/img9.jpg') + ')'
+        }">
+          <div class="content" >
+            PAIRING
+          </div>
+        </span>
+      </div>
+      <div class="child" >
+        <span class="carousel-text container"
+        :style="{
+          backgroundImage: 'url(' + require('@/assets/img/slider/img10.jpg') + ')'
+        }">
+          <div class="content" >
+            VARIETAL
+          </div>
+        </span>
+      </div>
+      <div class="child" >
+        <span class="carousel-text container"
+        :style="{
+          backgroundImage: 'url(' + require('@/assets/img/slider/img11.jpg') + ')'
+        }">
+          <div class="content" >
+            PRODUCERS
+          </div>
+        </span>
+      </div>
+      <div class="child" >
+        <span class="carousel-text container"
+        :style="{
+          backgroundImage: 'url(' + require('@/assets/img/slider/img12.jpg') + ')'
+        }">
+          <div class="content" >
+            REGION
+          </div>
+        </span>
+      </div>
 
-    <div class="progress-container">
-        <div class="progress-bar" id="mybar"> </div>
-
-    </div>
+    </vuescroll-carousel>
   </div>
- </div> 
 </template>
 
 <script>
-import Slide from "@/components/home/AppSlide.vue";
+import Vue from 'vue';
+import vuescroll from 'vuescroll';
+// import carousel plugin and its css file
+import vuescrollCarousel from '@/components/vuescroll-carousel/src/carousel.vue';
+import 'vuescroll/dist/vuescroll.css';
+// reigstry the plugin
+
+Vue.use(vuescroll);
+
 
 export default {
+  components: { vuescrollCarousel },
   data() {
-    return {
-      slides: [
-        {
-          name: "PAIRING",
-          src:
-            require("@/assets/img/slider/glasses.jpg")
-        },
-        {
-          name: "VARIETAL",
-          src:
-            require("@/assets/img/slider/glasses.jpg")
-        },
-        {
-          name: "PRODUCERS",
-          src:
-            require("@/assets/img/slider/glasses.jpg")
-        },
-        {
-          name: "PRODUCERS",
-          src:
-            require("@/assets/img/slider/glasses.jpg")
-        }
-      ],
-      innerWidth: 0,
-      singleWidth: 0
-    };
-  },
-  props: {
-    itemsPerSlide: {
-      type: null,
-      default: 1
-    }
-  },
-  components: {
-    Slide
-  },
-  methods: {
-    mouseover: function(){
-      setTimeout(this.scrollsmooth, 500);
-    },
-    mouseleave: function(){
-      setTimeout(this.scrollback, 1000);
-    },
-    scrollsmooth: function(){
-      var elemnt = this.$refs.sli;
-      var xScroll = elemnt.scrollWidth;
-      elemnt.scrollBy({ top: 0, left: xScroll, behavior: 'smooth'});
-    },
-    scrollback: function(){
-      var elemnt = this.$refs.sli;
-      elemnt.scrollTo({ top: 0, left: 0, behavior: 'smooth'});
-    }      
-  },
-  mounted: function() {
-
-      var row = document.getElementById("slider_id")
-      row.onscroll = function() {myFunction()};
-
-      function myFunction() {
-        var winScroll = row.scrollLeft;
-        var width = row.scrollWidth - row.clientWidth
-        var scrolled = (winScroll / width) * 100;
-        document.getElementById("mybar").style.width = scrolled + "%";
-        }
+    return {};
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.slide-div {
-  display: inline-block;
-  width: 33%;
+
+.container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  cursor: grab;
 }
 
-.slides-inner {
-  margin-top: 10%;
-  white-space: nowrap;
-  margin: 70.3125px 0;
-  padding-bottom: 10px;
-  transition: 450ms -webkit-transform;
-  transition: 450ms transform;
-  transition: 450ms transform, 450ms -webkit-transform;
+.container .content {
+    position: absolute;
+    font-size: 20px;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 22px;
+    left: 0;
+}
+span.carousel-text.container {
+    height: 265px;
+    margin: 0px 10px;
+    padding: 8px;
+    border-radius: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
-.slides-inner:hover {
-  -webkit-transform: translate3d(-62.5px, 0, 0);
-  transform: translate3d(-62.5px, 0, 0);
+.carousel-wrap {
+    width: 100% !important;
+    background-color: black;
+    margin: 80px 0px 60px 0px;
 }
-
-
-.slide-div:hover ~ .slide-div {
-  -webkit-transform: translate3d(20px, 0, 0);
-  transform: translate3d(20px, 0, 0);
+.child {
+    text-align: center;
+    text-shadow: 0px 3px 3px #975a00;
+    -webkit-text-shadow: 0px 3px 3px #975a00;
+    -moz-text-shadow: 0px 3px 3px #975a00;
+    font-family: '微软雅黑 Bold', '微软雅黑 Regular', '微软雅黑';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 48px;
+    color: #ff9900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  span.carousel-text img {
+    border-radius: 15px;
 }
-
-.slides {
-  background-color: #1d1d1d;
-  color: white;
-  height: 500px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  width: 100%;
-}
-
- div > h4 {
-  font-size: calc(4px + 1vw);
-  font-weight: bold;
-  color: white;
-}
-
-.progress-container {
-    width: 60%;
-    height: 8px;
-    position: sticky;
-    background: #13121240;
-    left: 20%;
-    border: 1px #fff2f2 solid;
-}
-.progress-bar {
-  height: 8px;
-  background: #2e683a;
-  width: 0%;
+.title-category{
+    position: absolute;
+    top: -40px;
+    color: white;
+    left: 0;
+    right: 0;
 }
 </style>

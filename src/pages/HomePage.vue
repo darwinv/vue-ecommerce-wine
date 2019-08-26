@@ -24,7 +24,7 @@ import AppGreenBackground from "@/components/home/AppGreenBackground.vue";
 import CategorySlider from "@/components/home/CategorySlider.vue";
 
 export default {
-  name: "home", 
+  name: "home",
   components: {
     AppMenuHeader,
     BannerBtn,
