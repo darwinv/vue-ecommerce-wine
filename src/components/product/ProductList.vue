@@ -12,6 +12,7 @@
 <script>
 import Product from "@/components/product/Product.vue";
 import { repofactory } from "@/common/repo_factory.js";
+import { bus } from "@/main";
 
 const Collection = repofactory.get('collection')
 
@@ -27,14 +28,18 @@ export default {
   },
    mounted(){
       //console.log(this.products);
-     this.getCollection();
+      let payload = {
+        }
+     this.getCollection(payload);
+     bus.$on('change', (data)=>{
+       this.getCollection(data);
+     })
   },
     methods:{
-    async getCollection(){
-        let payload = {
-        }
+    async getCollection(payload){
         try {
           const { data } = await Collection.obtain(payload);
+          console.log(payload)
 //          console.log(data);
           this.products = data
         } catch (error) {
