@@ -35,6 +35,11 @@ export default {
        this.getCollection(data);
      })
   },
+  created(){
+        bus.$on('change', (string_var) => {
+              console.log(`Oh, that's nice. It's gotten ${string_var}! :)`)
+          });
+  },
     methods:{
     async getCollection(payload){
         try {

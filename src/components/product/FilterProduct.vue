@@ -44,15 +44,16 @@
             <div class="color-gray3">
               PRICE:
               <span class="border-gray" >
-                <button class="btn-filter-price" v-on:click="toggleFilterPrice(1)"
+              <b-button-group>
+                <b-button class="btn-filter-price" v-on:click="toggleFilterPrice(1)"
                   v-bind:class="{ 'active': sortLower == 1 }">
                     HIGH
-                </button>-
-                <button class="btn-filter-price" v-on:click="toggleFilterPrice(2)"
+                </b-button>
+               <b-button class="btn-filter-price" v-on:click="toggleFilterPrice(2)"
                   v-bind:class="{ 'active': sortLower == 2 }">
                     LOW
-                </button>
-                  
+                </b-button>
+              </b-button-group>
               </span>
             </div>
         </div>
@@ -61,39 +62,46 @@
 
 </template>
 
-
 <script>
 import { bus } from "@/main";
 
 export default {
   name: "FilterProduct",
-  data: function() {
+  data() {
     return {
       isFilterDisplay: false,
-      textColor: 'ALL',
+      textColor: 'all',
       sortLower: null,
     };
   },
   methods: {
     toggleFilter() {
       this.isFilterDisplay = !this.isFilterDisplay;
+      console.log('hey');
     },
     FilterChange(textColor) {
       this.textColor = textColor;
       let arr_color = [];
 
       arr_color.push(this.textColor);
-      let new_data = {"color":arr_color};
+      let price_range = this.sortLower == 2 ? "LOW" : "HIGH";
+      let new_data = {"color":arr_color, "price_range":price_range};
       if (this.textColor == 'all'){
-          new_data = {} 
+          new_data = {"price_range":price_range} 
       }
       bus.$emit('change', new_data);
       this.toggleFilter();
     },
     toggleFilterPrice(value) {
+ 
+      let arr_color = [];
+      arr_color.push(this.textColor);
       this.sortLower = value;
       let price_range = this.sortLower == 2 ? "LOW" : "HIGH";
-      let new_data = {"price_range":price_range}
+      let new_data = {"price_range":price_range, "color":arr_color}
+      if (this.textColor == "all"){
+         new_data = {"price_range":price_range}
+      }
       bus.$emit('change', new_data);
     }
   }
